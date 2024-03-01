@@ -1,9 +1,6 @@
-'use strict';
+import {booksApi} from '../books API/books-api';
 
-
-import {booksApi} from './api-books';
-
-import {booksApibyCategory} from './api-books';
+import {booksApibyCategory} from '../books API/books-api';
 
 import {renderBooksAllCat} from './render-function-books';
 

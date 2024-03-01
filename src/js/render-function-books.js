@@ -1,5 +1,3 @@
-'user strict';
-
 const booksContainer = document.querySelector('.books-container');
 const containerTitle = document.querySelector('.container-title');
 const containerCategory = document.querySelector('.container-category');

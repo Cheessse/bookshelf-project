@@ -4,3 +4,6 @@ import './js/home-menu';
 import './js/home-ukraine';
 import './js/modal-window';
 import './js/shopping-list';
+import './js/pagination';
+import './js/loader';
+import './js/scroll-up';

@@ -1,6 +1,8 @@
-import {booksApi} from '../books API/books-api';
+import {categoryList} from '../books API/books-api';
 
-import {booksApibyCategory} from '../books API/books-api';
+import {booksByCategory} from '../books API/books-api';
+
+import {topBooks} from '../books API/books-api';
 
 import {renderBooksAllCat} from './render-function-books';
 

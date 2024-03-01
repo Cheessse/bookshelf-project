@@ -24,7 +24,7 @@ export function renderBooksAllCat({books,list_name}){
 
     booksContainer.insertAdjacentHTML('beforeend', markup);
 }
-
+ 
 export function renderBooksByCat({books,list_name}){
     const markup=booksCreation(books);
     containerTitle.textContent=`'${list_name}'`;

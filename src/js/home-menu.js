@@ -10,13 +10,13 @@ window.onload = function () {
     myCategoryList.appendChild(title);
     categoryList().then(categories => {
         categories.forEach(function (category) {
-            const paragraph = document.createElement('p');
+            const paragraph = document.createElement('p'); // создаем <p> для кажд элем списка
             paragraph.textContent = category.list_name;
             paragraph.id = "p-list";
-            myCategoryList.appendChild(paragraph);
+            paragraph.addEventListener('click', loadBooks); //Вызываем функцию loadBooks при клике на элемент
+            categoryList.appendChild(paragraph);
         });
     }).catch(error => {
         console.error('Error fetching data;', error);
     });
-    paragraph.addEventListener('click', loadBooks);
 };

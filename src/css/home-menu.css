@@ -1,0 +1,50 @@
+.slider-container {
+
+    overflow-y: auto;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+.slider-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.slider-container ul p {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.slider-container ul p:hover {
+    background-color: #f0f0f0;
+}
+
+#category-list {
+    width: 356px;
+    height: 472px;
+    overflow-y: auto;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#category-list p {
+    cursor: pointer;
+    margin-bottom: 32px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+#title {
+    margin-bottom: 32px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 133%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #800080;
+}

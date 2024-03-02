@@ -1,18 +1,19 @@
-import { booksApi } from './home-books';
+
+import { categoryList } from '../books API/books-api';
 import { loadBooks } from './home-books';
 
 window.onload = function () {
-    const categoryList = document.getElementById("category-list");
+    const myCategoryList = document.getElementById("category-list");
     const title = document.createElement('li');
     title.textContent = "ALL CATEGORIES";
     title.id = "title";
-    categoryList.appendChild(title);
-    booksApi().then(categories => {
+    myCategoryList.appendChild(title);
+    categoryList().then(categories => {
         categories.forEach(function (category) {
             const paragraph = document.createElement('p');
             paragraph.textContent = category.list_name;
             paragraph.id = "p-list";
-            categoryList.appendChild(paragraph);
+            myCategoryList.appendChild(paragraph);
         });
     }).catch(error => {
         console.error('Error fetching data;', error);

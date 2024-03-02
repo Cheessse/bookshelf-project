@@ -31,7 +31,91 @@
   text-align: center;
   color: rgba(0, 0, 0, 0.6);
 }
+.sidebar {
+  display: none;
+}
+
+.shopping-list-render {
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
+  padding: 30px 24px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.book-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.book-cover {
+  border-radius: 8px;
+}
+
+.book-description {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #111;
+}
+
+.book-category {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.03em;
+  color: #b4afaf;
+}
+.book-author {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.icon-trash {
+  border-radius: 100%;
+  background-color: #4f2ee8;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.trash {
+  width: 16px;
+  height: 16px;
+}
+
 @media screen and (min-width: 768px) {
 }
+
 @media screen and (min-width: 1440px) {
+  .sidebar {
+    display: block;
+  }
 }

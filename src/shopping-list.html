@@ -19,15 +19,15 @@
 
     <div class="shopping-list-main">
       <div class="support-ukraine">
-        <load scr="partials/home-ukraine.html" />
+        <aside class="sidebar">
+          <load scr="partials/home-ukraine.html" />
+        </aside>
       </div>
-      <div>
+      <div class="render-books">
         <h1 class="shopping-list-h1">
           Shopping <span class="shopping-list-span">List</span>
         </h1>
-        <div class="shopping-list-render">
-          <ul class="shopping-list-items"></ul>
-        </div>
+        <div class="shopping-list-render"></div>
         <div class="shopping-list-default-div">
           <p class="shopping-list-default-text">
             This page is empty, add some books and proceed to order.
@@ -55,7 +55,9 @@
         </div>
       </div>
     </div>
-
     <load scr="partials/pagination.html" />
+    <script type="module" src="./js/header.js"></script>
+    <script type="module" src="./js/home-ukraine.js"></script>
+    <script type="module" src="./js/shopping-list.js"></script>
   </body>
 </html>

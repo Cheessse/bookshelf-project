@@ -1,0 +1,38 @@
+#pagination {
+    margin-top: 10px;
+  }
+
+  .tui-pagination {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tui-pagination li {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .tui-pagination li a {
+    display: inline-block;
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .tui-pagination li a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .tui-pagination .is-selected a {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .tui-pagination .is-selected a:hover {
+    background-color: #0056b3;
+  }
+  

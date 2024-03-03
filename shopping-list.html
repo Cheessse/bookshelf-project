@@ -12,7 +12,9 @@
       rel="stylesheet"
     />
     
-    <link rel="stylesheet" href="/project-team-6/assets/styles-2ef78fea.css">
+    <script type="module" crossorigin src="/project-team-6/assets/shopping-list-b49ea8ba.js"></script>
+    <script type="module" crossorigin src="/project-team-6/assets/vendor-7a5a590f.js"></script>
+    <link rel="stylesheet" href="/project-team-6/assets/shopping-list-d9c622d4.css">
   </head>
 
   <body>
@@ -21,7 +23,8 @@
 
     <div class="shopping-list-main">
       <div class="support-ukraine">
-        <div class="block-support-ukraine">    
+        <aside class="sidebar">
+          <div class="block-support-ukraine">    
     <div class="support">
         <div class="support-title">
             <h3 class="support-header">Support Ukraine</h3>
@@ -39,14 +42,13 @@
         </div>
     </div>
 </div>
+        </aside>
       </div>
-      <div>
+      <div class="render-books">
         <h1 class="shopping-list-h1">
           Shopping <span class="shopping-list-span">List</span>
         </h1>
-        <div class="shopping-list-render">
-          <ul class="shopping-list-items"></ul>
-        </div>
+        <div class="shopping-list-render"></div>
         <div class="shopping-list-default-div">
           <p class="shopping-list-default-text">
             This page is empty, add some books and proceed to order.
@@ -74,10 +76,12 @@
         </div>
       </div>
     </div>
-
     <body>
     <div id="shopping-list-pagination" class="shoping-pagination"> </div>
     <div id="tui-pagination-container" class="tui-pagination"></div>
 </body>
+    
+    
+    
   </body>
 </html>

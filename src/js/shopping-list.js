@@ -6,7 +6,7 @@ import { bookId } from './modal-window';
 const placeholder = document.querySelector('.shopping-list-default-div');
 
 function renderBooksFromLS() {
-  const booksLS = JSON.parse(localStorage.getItem(bookId)) || [];
+  const booksLS = JSON.parse(localStorage.getItem(book)) || [];
 
   const booksList = document.querySelector('.shopping-list-render');
 

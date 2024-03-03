@@ -14,7 +14,7 @@ window.onload = function () {
             paragraph.textContent = category.list_name;
             paragraph.id = "p-list";
             paragraph.addEventListener('click', loadBooks); //Вызываем функцию loadBooks при клике на элемент
-            categoryList.appendChild(paragraph);
+            myCategoryList.appendChild(paragraph);
         });
     }).catch(error => {
         console.error('Error fetching data;', error);

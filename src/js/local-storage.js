@@ -1,4 +1,4 @@
-const SHOPPING_LIST_KEY = 'list';
+export const SHOPPING_LIST_KEY = 'list';
 
 function toLocalStorage(key, value) {
   const values = JSON.stringify(value);

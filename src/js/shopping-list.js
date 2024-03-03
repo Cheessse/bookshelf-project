@@ -1,6 +1,6 @@
-import amazon from '../img/icons.svg#icon-amazon';
-import appleBook from '../img/icons.svg#icon-ibooks';
-import trash from '../img/icons.svg#icon-trash';
+import amazon from '../img/symbol-defs.svg#icon-amazon';
+import appleBook from '../img/symbol-defs.svg#icon-ibooks';
+import trash from '../img/symbol-defs.svg#icon-trash';
 import { SHOPPING_LIST_KEY } from './local-storage';
 
 const placeholder = document.querySelector('.shopping-list-default-div');

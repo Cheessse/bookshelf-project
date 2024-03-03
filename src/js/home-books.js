@@ -8,18 +8,20 @@ import { renderBooksAllCat } from './render-function-books';
 
 import { renderBooksByCat } from './render-function-books';
 
-const categoryBlock=document.querySelector('#category-list')
+// import categoryBlock from './home-menu';
+
+const categoryDiv=categoryBlock.querySelectorAll('#p-list');
 
 let page;
 
 export async function loadBooks(e) {
   e.preventDefault();
   page = 1;
-  categoryName=categoryBlock.querySelectorAll('#p-list')
+  let selectedCategoryName=categoryDiv.textContent;
   try {
     const data = await booksByCategory();
     const dataTop = await topBooks();
-    if (data.target.list_name === categoryName) {
+    if (data.target.list_name === selectedCategoryName) {
       renderBooksByCat(data);
     } else {
       renderBooksAllCat(dataTop);
@@ -27,8 +29,6 @@ export async function loadBooks(e) {
   } catch (error) {
     console.log(error);
   }
-
-  e.target.reset();
 }
 
 // function loadMoreBooks() {

@@ -1,4 +1,4 @@
-const SHOPPING_LIST_KEY = 'list';
+export const SHOPPING_LIST_KEY = 'list';
 
 function addToShoppingList(book) {
   const shopList = getAllBooks();

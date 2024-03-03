@@ -1,4 +1,4 @@
-import{categoryList, booksByCategory, topBooks, booksId} from "../books API"
+import{ booksId } from "../books API/books-api"
 import  iziToast from 'izitoast';
 import { openAndCloseModal } from "./open-close-modal";
 
@@ -18,7 +18,7 @@ btn.addEventListener('click', addOrRemoveBook);
 export async function modalAboutBook(bookId) {
     try {
       const book = await booksId(bookId);
-      
+
       checkLocalStorage(book);
   
       bookIMG.attributes.src.value = book.book_image;

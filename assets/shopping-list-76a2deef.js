@@ -28,4 +28,4 @@
       </button>
        </div>
   `).join("");s.insertAdjacentHTML("beforeend",n)}document.querySelectorAll(".delete-btn").forEach(n=>{n.addEventListener("click",()=>{const e=n.getAttribute("data-book-id");h(e);const t=n.closest(".card");t&&t.remove(),y()})})}g();function h(o){const s=getLocalStorageItem(l);if(!s||s.length===0)return;const r=s.filter(n=>n._id!==o);toLocalStorage(l,r)}function f(){return document.querySelector(".shopping-list-render").children.length===0}function y(){const o=document.querySelector(".support-ukraine");f()?(a.style.display="block",o.style.display="none"):(a.style.display="none",o.style.display="block")}
-//# sourceMappingURL=shopping-list-39dfb82e.js.map
+//# sourceMappingURL=shopping-list-76a2deef.js.map

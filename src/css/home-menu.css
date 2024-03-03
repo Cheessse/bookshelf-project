@@ -1,7 +1,6 @@
 /** MOBILE CSS */
 .slider-container {
     overflow-y: auto;
-    height: 100%;
 }
 
 .slider-container ul {
@@ -17,6 +16,7 @@
     background-color: #f0f0f0;
 }
 
+/** ================================================================= */
 #category-list {
     width: 307px;
     height: 228px;
@@ -70,7 +70,13 @@
     margin-right: 20px;
 }
 
+/**=====  TABLET ===================================================================================  */
+
 @media screen and (min-width: 768px) {
+    .slider-container {
+        overflow-y: auto;
+        height: 100%;
+    }
 
     #category-list {
         width: 309px;
@@ -96,6 +102,7 @@
 
 }
 
+/**=====  FULL-SCR ===================================================================================  */
 @media screen and (min-width: 1440px) {
 
     #category-list {
@@ -103,17 +110,3 @@
     }
 
 }
-
-/* DARK THEME */
-/* .slider-container .dark {
-    background-color: #333;
-    color: var(--yellow);
-    stroke: #FFFFFF;
-    fill: #dcdcdc;
-}
-
-.slider-container .light {
-    background-color: #f9f9f9;
-    color: #333;
-    fill: #000;
-} */

@@ -1,0 +1,46 @@
+.support {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 24px 40px 20px;
+    width: 335px;
+    border-radius: 16px;
+    max-height: 460px;
+    box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
+    background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, rgb(79, 46, 232) 18.02733987569809%, rgb(255, 255, 255) 100%);
+}
+
+.support-title {
+    display: flex;
+    gap: 12px;
+    /*i cant see the margin-left size*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.support-header {
+    font-family: "DM Sans", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+
+.support-icon {
+    width: 20;
+    height: 32;
+}
+
+/*Suooprt items list*/
+
+.support-item {
+    display: flex;
+    gap: 20;
+    align-items: center;
+}
+
+
+/*Button*/

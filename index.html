@@ -11,14 +11,83 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap" rel="stylesheet">
   
   <script type="module" crossorigin src="/project-team-6/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/project-team-6/assets/shopping-list-b49ea8ba.js">
+  <link rel="modulepreload" crossorigin href="/project-team-6/assets/shopping-list-70672839.js">
   <link rel="modulepreload" crossorigin href="/project-team-6/assets/vendor-7a5a590f.js">
-  <link rel="stylesheet" href="/project-team-6/assets/shopping-list-d9c622d4.css">
+  <link rel="stylesheet" href="/project-team-6/assets/shopping-list-a2845aac.css">
 </head>
 
-<body>
+<body class="light">
 
   
+    <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <label for="theme-toggle"></label>
+    </div>
+    <header id="header" class="header"> 
+        <div class="container header-container"> 
+            <a href="../index.html" class="header-logo-link" label="Logo"> 
+                <svg class="header-logo" width="24" height="24"> 
+                    <use href="../img/symbol-defs.svg#icon-logo"></use> 
+                </svg>
+                <span> 
+                    <svg class="icon-Bookshelf" width="77" height="14">
+                        <use href="../img/symbol-defs.svg#icon-Bookshelf"></use> 
+                    </svg>
+                </span> 
+                <!-- <span>Logo</span>  -->
+            </a> 
+            <nav class="nav"> 
+                <ul class="list nav-list"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link-home current-page is-hidden" href="../index.html" label="Link to home page">HOME</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link-shopping is-hidden" href="../shopping-list.html" label="Link to Shopping list">SHOPPING LIST 
+                            <svg width="20" height="20"> 
+                                <use href="../img/symbol-defs.svg#icon-shopping-bag"></use>
+                            </svg>
+                        </a> 
+                    </li> 
+                </ul> 
+            </nav>
+            <!-- <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle"></label>
+            </div>             -->
+        </div>       
+            <button type="button" class="header-mob-menu-btn js-open-menu">
+                <svg width="32" height="22" class="header-menu-icon">
+                  <use
+                    href="../img/symbol-defs.svg#icon-header-menu-mob"
+                  ></use>
+                </svg>
+            </button>
+    
+            <div class="container-modal-menu js-menu-container" id="mobile-menu">
+                <div class="header-modal-menu">
+                  <button class="header-modal-btn js-close-menu">
+                    <svg width="32" height="32" class="header-modal-btn-icon">
+                      <use
+                        href="../img/symbol-defs.svg#icon-x"
+                      ></use>
+                    </svg>
+                  </button>
+                  <ul class="header-modal-list">
+                    <li class="header-modal-item">
+                      <a
+                        href="../index.html"
+                        class="header-modal-link header-modal-link-one-child"
+                        >HOME</a
+                      >
+                    </li>
+                    <li class="header-modal-item">
+                      <a href="./shopping-list.html" class="header-modal-link">SHOPPING LIST</a>
+                    </li>                    
+                  </ul>                  
+                </div>
+            </div>
+    </header>    
+
 
 
   <div class="slider-container" id="container">

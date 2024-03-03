@@ -1,15 +1,14 @@
 import amazon from '../img/symbol-defs.svg#icon-amazon';
 import appleBook from '../img/symbol-defs.svg#icon-ibooks';
 import trash from '../img/symbol-defs.svg#icon-trash';
-import { SHOPPING_LIST_KEY } from './local-storage';
+import { bookId } from './modal-window';
 
 const placeholder = document.querySelector('.shopping-list-default-div');
 
 function renderBooksFromLS() {
-  const booksLS = JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) || [];
+  const booksLS = JSON.parse(localStorage.getItem(bookId)) || [];
 
   const booksList = document.querySelector('.shopping-list-render');
-  booksList.innerHTML = '';
 
   if (booksLS.length === 0) {
     placeholder.style.display = 'block';

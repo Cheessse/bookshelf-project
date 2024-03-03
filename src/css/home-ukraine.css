@@ -30,11 +30,11 @@
 }
 
 .support-icon {
-    width: 20;
-    height: 32;
+    width: 20px;
+    height: 32px;
 }
 
-/*Suooprt items list*/
+/*Support items list*/
 
 .support-item {
     display: flex;
@@ -42,5 +42,92 @@
     align-items: center;
 }
 
+.support-number {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+
+    margin-right: 16px;
+}
+
+.support-img {
+    filter: brightness(0) invert(1);
+    display: inline-block;
+    vertical-align: middle;
+    height: 32px;
+}
 
 /*Button*/
+.support-btn {
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    width: 32px;
+    border: none;
+    border-radius: 50px;
+    background-color: #fff;
+    transform: rotateX(0);
+    transition: transform 0.5s ease-in-out;
+
+    & span {
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+}
+
+.support-btn.hidden {
+    display: none;
+}
+
+.support-btn-up {
+    transform: rotateX(180deg);
+}
+
+.support-btn-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.swiper {
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .support {
+        max-height: 472px;
+        padding-bottom: 14px;
+    }
+
+    .swiper {
+        margin-bottom: 32px;
+    }
+
+    .support-btn {
+        min-height: 38px;
+        width: 38px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .support {
+        width: 356px;
+        max-height: 490px;
+        padding-bottom: 24px;
+    }
+    .swiper {
+        margin-bottom: 40;
+    }
+
+    .support-btn {
+        min-height: 38px;
+        width: 38px;
+    }
+}

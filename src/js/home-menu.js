@@ -1,6 +1,8 @@
 
 import { categoryList } from '../books API/books-api';
 import { loadBooks } from './home-books';
+const categoryBlock = document.querySelector("#category-list");
+export default categoryBlock;
 
 window.onload = function () {
     const myCategoryList = document.getElementById("category-list");

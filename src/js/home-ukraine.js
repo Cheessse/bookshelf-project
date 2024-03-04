@@ -5,7 +5,7 @@ import { support } from '../js/support';
 const swiperOptions = {
     direction: 'vertical',
     navigation: {
-        nextEl: 'swiper-btn-next'
+        nextEl: '.swiper-btn-next'
     },
      
     rewind: true,
@@ -18,7 +18,7 @@ const swiperOptions = {
 const swiper = new Swiper('.swiper', swiperOptions);
 
 const refs = {
-    nextBtn: document.querySelector('.swiper-button-next'),
+    nextBtn: document.querySelector('.swiper-btn-next'),
     list: document.querySelector('.swiper-wrapper'),
     btn: document.querySelector('.support-btn'),
 };
@@ -39,9 +39,9 @@ const markup = support
 
 refs.list.innerHTML = markup;
 
-toogleBtn();
+toggleBtn();
 
-addEventListener('resize', toogleBtn);
+addEventListener('resize', toggleBtn);
 
 function onBtnClick() {
     swiper.slideNext();
@@ -50,7 +50,7 @@ function onBtnClick() {
     }
 }
 
-function toogleBtn() {
+function toggleBtn() {
     const isHidden = refs.btn.classList.contains('hidden');
     if (support.length > swiper.params.slidesPerGroup) {
         if (isHidden) {

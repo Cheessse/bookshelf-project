@@ -8,10 +8,12 @@ import {
   checkLocalStorage,
 } from './modal-window';
 
+import { SHOPPING_LIST_KEY } from './localStorage';
+
 const placeholder = document.querySelector('.shopping-list-default-div');
 
 function renderBooksFromLS() {
-  const booksLS = JSON.parse(localStorage.getItem(book)) || [];
+  const booksLS = JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) || [];
 
   const booksList = document.querySelector('.shopping-list-render');
 

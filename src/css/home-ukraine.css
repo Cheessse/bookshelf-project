@@ -13,13 +13,16 @@
 .support-title {
     display: flex;
     gap: 12px;
+    align-items: center;
+    justify-content: left;
     /*i cant see the margin-left size*/
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 40px;
+    width: 193px;
+    height: 32px;
 }
 
 .support-header {
+    align-items: center;
     font-family: "DM Sans", sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -30,8 +33,7 @@
 }
 
 .support-icon {
-    width: 20px;
-    height: 32px;
+    fill: #fff;
 }
 
 /*Support items list*/
@@ -43,6 +45,7 @@
 }
 
 .support-number {
+    font-family: "DM Sans", sans-serif;
     display: inline-block;
     font-weight: 400;
     font-size: 14px;

@@ -8,7 +8,7 @@ import {
   checkLocalStorage,
 } from './modal-window';
 
-import { SHOPPING_LIST_KEY } from './localStorage';
+import { SHOPPING_LIST_KEY } from './local-storage';
 
 const placeholder = document.querySelector('.shopping-list-default-div');
 

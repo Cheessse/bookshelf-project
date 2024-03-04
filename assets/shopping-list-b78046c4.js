@@ -35,4 +35,4 @@ import{S}from"./vendor-edf1012f.js";(function(){const o=document.createElement("
       </button>
        </div>
   `).join("");o.insertAdjacentHTML("beforeend",i)}document.querySelectorAll(".delete-btn").forEach(i=>{i.addEventListener("click",()=>{const t=i.getAttribute("data-book-id");P(t);const n=i.closest(".card");n&&n.remove(),C()})})}$();function P(e){const o=getLocalStorageItem(c);if(!o||o.length===0)return;const s=o.filter(i=>i._id!==e);toLocalStorage(c,s)}function j(){return document.querySelector(".shopping-list-render").children.length===0}function C(){const e=document.querySelector(".support-ukraine");j()?(g.style.display="block",e.style.display="none"):(g.style.display="none",e.style.display="block")}
-//# sourceMappingURL=shopping-list-8b211d44.js.map
+//# sourceMappingURL=shopping-list-b78046c4.js.map

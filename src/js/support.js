@@ -1,21 +1,31 @@
+import children from './img/SaveChildren.png';
+import hope from './img/projectHOPE.png';
+import united24 from './img/United24.png';
+import children from
+import children from
+import children from
+import children from
+import children from
+import children from
+
 export const support = [
   {
     title: 'Save the Children',
     url:
       'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
-    img: '../img/SaveChildren.png',
-    img2x: '../img/SaveChildren2x.png',
+    img: children,
+    img2x: './img/SaveChildren2x.png',
   },
   {
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
-    img: './img/projectHOPE.png',
+    img: hope,
     img2x: './img/projectHOPE2x.png',
   },
   {
     title: 'UNITED24',
     url: 'https://u24.gov.ua/uk',
-    img: './img/United24.png',
+    img: united24,
     img2x: './img/United24_2x.png',
   },
   {

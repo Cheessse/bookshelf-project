@@ -1,6 +1,7 @@
 import { booksId } from '../books API/books-api';
 import iziToast from 'izitoast';
 import { openAndCloseModal } from './open-close-modal';
+import {SHOPPING_LIST_KEY, localStorageAPI} from './local-storage';
 
 const bookIMG = document.querySelector('.popup-book-image');
 const bookTitle = document.querySelector('.popup-book-title');
@@ -49,31 +50,22 @@ export function addOrRemoveBook(e) {
 }
 
 export function addBook(id) {
-  let idBooks = localStorage.getItem(`idBooks`);
-
-  if (idBooks === 'undefined' || !idBooks || idBooks === '') {
-    idBooks = [];
-    localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
-  }
-
-  idBooks = JSON.parse(localStorage.getItem(`idBooks`));
-
+  let idBooks = localStorageAPI.getAllBooks(); 
   idBooks.push(id);
-  localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
+  localStorageAPI.addToShoppingList(idBooks);
   btn.textContent = 'Remove from the shopping list';
   addMessage.hidden = false;
   updateShoppingList();
 }
 
 export function removeBook(id) {
-  let idBooks = JSON.parse(localStorage.getItem(`idBooks`));
+  let idBooks = localStorageAPI.getAllBooks();
 
   idBooks.splice(idBooks.indexOf(id), 1);
-  localStorage.setItem(`idBooks`, JSON.stringify(idBooks));
+  localStorageAPI.addToShoppingList(idBooks);
   btn.textContent = 'Add to shopping list';
   addMessage.hidden = true;
-  updateShoppingList();
-}
+  updateShoppingList();}
 
 export function checkLocalStorage(book) {
   let permanentLS = localStorage.getItem(`idBooks`);

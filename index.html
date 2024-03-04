@@ -1,42 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/project-team-6/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap"
+      rel="stylesheet"
+    />
+    
+    <script type="module" crossorigin src="/project-team-6/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-team-6/assets/vendor-edf1012f.js">
+    <link rel="modulepreload" crossorigin href="/project-team-6/assets/shopping-list-b78046c4.js">
+    <link rel="stylesheet" href="/project-team-6/assets/shopping-list-07b6ac5b.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/project-team-6/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshelf</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap" rel="stylesheet">
+  <body class="light">
+    
+    <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle">
+        <label for="theme-toggle"></label>
+    </div>
+    <header id="header" class="header"> 
+        <div class="container header-container"> 
+            <a href="./index.html" class="header-logo-link" label="Logo"> 
+                <svg class="header-logo" width="24" height="24"> 
+                    <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-logo"></use> 
+                </svg>
+                <span> 
+                    <svg class="icon-Bookshelf" width="77" height="14">
+                        <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-Bookshelf"></use> 
+                    </svg>
+                </span> 
+                <!-- <span>Logo</span>  -->
+            </a> 
+            <nav class="nav"> 
+                <ul class="list nav-list"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link-home current-page is-hidden" href="./index.html" label="Link to home page">HOME</a> 
+                    </li> 
+                    <li class="nav-item"> 
+                        <a class="nav-link-shopping is-hidden" href="./shopping-list.html" label="Link to Shopping list">SHOPPING LIST 
+                            <svg width="20" height="20"> 
+                                <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-shopping-bag"></use>
+                            </svg>
+                        </a> 
+                    </li> 
+                </ul> 
+            </nav>
+            <!-- <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle"></label>
+            </div>             -->
+        </div>       
+            <button type="button" class="header-mob-menu-btn js-open-menu">
+                <svg width="32" height="22" class="header-menu-icon">
+                  <use
+                    href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-burger"
+                  ></use>
+                </svg>
+            </button>
+    
+            <div class="container-modal-menu js-menu-container" id="mobile-menu">
+                <div class="header-modal-menu">
+                  <button class="header-modal-btn js-close-menu">
+                    <svg width="32" height="32" class="header-modal-btn-icon">
+                      <use
+                        href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-x"
+                      ></use>
+                    </svg>
+                  </button>
+                  <ul class="header-modal-list">
+                    <li class="header-modal-item">
+                      <a
+                        href="./index.html"
+                        class="header-modal-link header-modal-link-one-child"
+                        >HOME</a
+                      >
+                    </li>
+                    <li class="header-modal-item">
+                      <a href="./shopping-list.html" class="header-modal-link">SHOPPING LIST</a>
+                    </li>                    
+                  </ul>                  
+                </div>
+            </div>
+    </header>    
+
+
+
+    <div class="slider-container light" id="container">
+    <ul id="category-list"></ul>
+</div>
+
+    <div class="block-support-ukraine">    
+    <div class="support">
+        <div class="support-title">
+            <h3 class="support-header">Support Ukraine</h3>
+            <svg width="20" height="32" class="support-icon">
+                <use href="../img/symbol-defs.svg#icon-UA_Herb"></use>
+            </svg>
+        </div>
+        <div class="swiper ">
+            <div class="swiper-wrapper">
+                <ul class="support-ukraine-list"></ul>
+            </div>
+        </div>
+        <button type="button" class="support-btn swiper-btn-next" aria-label="Scroll down">
+            <span>Scroll Down</span>
+            <svg class="support-btn-icon">
+                <use href="../img/symbol-defs.svg#icon-support-down"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+
+    <div class="container">
   
-  <script type="module" crossorigin src="/project-team-6/commonHelpers.js"></script>
-  <link rel="modulepreload" crossorigin href="/project-team-6/assets/vendor-edf1012f.js">
-  <link rel="modulepreload" crossorigin href="/project-team-6/assets/shopping-list-b78046c4.js">
-  <link rel="stylesheet" href="/project-team-6/assets/shopping-list-07b6ac5b.css">
-</head>
+  <ul class="books-container"></ul>
+</div>
 
-<body class="light">
 
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /header.html'
 
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /home-menu.html'
 
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /home-ukraine.html'
+    <div class="about-book-backdrop" data-modal=""> 
+        <div class="modal about-book-window" data-modal-window=""> 
+          <button class="about-book-close-btn" data-modal-close="" aria-label="Close modal">
+            <svg class="about-book-close-btn-icon" width="24" height="24"> 
+            <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-close" viewBox="0 0 32 32">
+                "></use> </svg>
+             </button>
+        <div class="about-book-render-book"> 
+           <img class="popup-book-image" src="" alt="cover" width="192">
+           <div class="popup-text-content">
+            <h2 class="popup-book-title"></h2>
+            <h3 class="popup-book-author"></h3> 
+            <p class="popup-book-review"></p> 
+        <ul class="popup-shopping-links">
+           <li> 
+            <a href="#" target="blank" rel="nofollow noopener noreferrer" aria-label="Link to shop" class="amazon popup-shopping-links-icon">
+                <svg class="icon-amazon" width="62" > 
+                    <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-amazon"></use> </svg>
+            </a> </li> 
+           <li> 
+            <a href="#" target="blank" rel="nofollow noopener noreferrer" aria-label="Link to shop" class="book popup-shopping-links-icon"> 
+                <svg class="icon-book" width="24" height="24"> 
+                    <use href="/project-team-6/assets/symbol-defs-f000629d.svg#icon-ibooks"></use> </svg>
+        </a> </li> 
+        </ul>
+        </div>
+         </div> 
+         <div class="about-book-add-button">
+            <button type="button" class="disabled modal-btn-add-to-shopinglist" id="add" aria-label="Add card to shopping list" disabled="">Add to shopping list</button> 
+        <p class="under-button-text">Congratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.</p>
+         </div>
+       
 
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /home-books.html'
-
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /modal-window.html'
-
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /pagination.html'
-
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /loader.html'
-
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /scroll-up.html'
-
-  ENOENT: no such file or directory, open '/home/runner/work/project-team-6/project-team-6/src/partials /swich-slider-black.html'
-
-  
+    <body>
+    <div id="shopping-list-pagination" class="shoping-pagination"> </div>
+    <div id="tui-pagination-container" class="tui-pagination"></div>
 </body>
 
+    
+
+    <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">Top</button>
+
+    <!-- //==================code HTML for swich===========================// -->
+<div class="container">
+  <label id="switch" class="switch">
+    <input type="checkbox" id="slider" />
+    <span class="slider round"></span>
+  </label>
+</div>
+
+
+    
+  </body>
 </html>

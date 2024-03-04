@@ -1,0 +1,47 @@
+.books-container {
+  list-style: none;
+  justify-content: flex-start;
+}
+
+.container {
+  max-width: 375px;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.book-title {
+  margin-top: 14px;
+  margin-bottom: 4px;
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -4%;
+}
+
+.book-author {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.book-image {
+  border-radius: 8px;
+}
+
+.container-category-one {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'DM Sans';
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -4%;
+}
+
+.container-category-one::first-line {
+  color: red;
+}

@@ -35,6 +35,11 @@ window.onload = function () {
     const title = document.createElement('li');
     title.textContent = 'ALL CATEGORIES';
     title.id = 'title';
+    // ! ===================================================
+    title.addEventListener('click', function () {
+        window.location.href = './index.html'; // Перенаправление на главную страницу при клике на ALL CATEGORIES
+    });
+    // ! ===================================================
     myCategoryList.appendChild(title);
     categoryList()
         .then(categories => {

@@ -1,5 +1,6 @@
 /** MOBILE CSS */
 .slider-container {
+    margin-top: 80px;
     overflow-y: auto;
 }
 

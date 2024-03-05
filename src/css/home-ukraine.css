@@ -40,7 +40,7 @@
 
 .support-item {
     display: flex;
-    gap: 20;
+    gap: 20px;
     align-items: center;
 }
 
@@ -61,6 +61,7 @@
     display: inline-block;
     vertical-align: middle;
     height: 32px;
+    max-width: 193px;
 }
 
 /*Button*/

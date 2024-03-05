@@ -29,7 +29,7 @@ categoryBlock.addEventListener('click', async event => {
     if (event.target.tagName === 'P') {
         const selectedCategory = event.target.textContent;
         loadBooks(selectedCategory);
-    } else if (event.target.tagName === 'Li') {
-        loadBooksAllCat();
+    } else if (event.target.id === 'title') {
+        loadBooksAllCat(category);
     }
 });

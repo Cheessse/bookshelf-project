@@ -1,11 +1,17 @@
 import axios from 'axios';
 
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
+
+
 const booksContainer = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector('.book-item');
 const btnSeemore = document.querySelector('#btn-seemore');
-const categoryElement = document.querySelector('.container-category-one');
 
-let booksToLoad = 5;
+const screenWidth = window.innerWidth;
+let screenSize;
+let booksToLoad;
 
 async function booksByCategory(selectedCategory) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/category';
@@ -17,14 +23,20 @@ async function booksByCategory(selectedCategory) {
       'Content-Type': 'application/json',
     },
   };
+
+  if (screenSize) {
+    url += `&screenSize=${screenSize}`;
+  }
+
+
   const res = await axios.get(url, options);
   return res.data;
 }
 
-async function topBooks(category, screenSize) {
+async function topBooks(category, screenSize,limit) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
   const encodeCat = encodeURIComponent(category);
-  const url = category ? `${BASE_URL}?category=${encodeCat}` : BASE_URL;
+  const url = category ? `${BASE_URL}?category=${encodeCat}&limit=${limit}` : `${BASE_URL}?limit=${limit}`;
   const options = {
     method: 'GET',
     headers: {
@@ -62,8 +74,9 @@ function renderBooks(books, category) {
   const words = categoryText.split(' ');
   const lastWord = words.pop();
   const markup =
-    `<h3 class="container-category-one">${words.join(' ') + ' <span class="last-word">' + lastWord + '</span>'}</h3>` +
-    templateBooks(books);
+    `<h3 class="container-category-one">${
+      words.join(' ') + ' <span class="last-word">' + lastWord + '</span>'
+    }</h3>` + templateBooks(books);
 
   booksContainer.innerHTML = markup;
 }
@@ -85,6 +98,7 @@ function renderBooksAll(categories) {
 
 export async function loadBooks(selectedCategory) {
   try {
+    hideBtn();
     const data = await booksByCategory(selectedCategory);
     renderBooks(data, selectedCategory);
   } catch (error) {
@@ -92,10 +106,20 @@ export async function loadBooks(selectedCategory) {
   }
 }
 
-export async function loadBooksAllCat() {
+export async function loadBooksAllCat(category) {
   try {
-    const data = await topBooks();
-    renderBooksAll(data);
+    let limit;
+    if (screenWidth >= 375 && screenWidth <= 767) {
+      limit = 1; 
+    } else if (screenWidth >= 768 && screenWidth <= 1279) {
+      limit = 3; 
+    } else {
+      limit = 5; 
+    }
+
+    const books = await topBooks(category, screenSize, limit);
+    renderBooksAll(books);
+    showMoreBooks(category);
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
@@ -109,11 +133,26 @@ function hideBtn() {
   btnSeemore.classList.add('hidden');
 }
 
-// btnSeemore.addEventListener('click', showMoreBooks);
+btnSeemore.addEventListener('click', event => {
+event.preventDefault();
+showMoreBooks(category);
+});
 
-// function showMoreBooks{
-
-// }
+async function showMoreBooks(category){
+  if (screenWidth >= 375 && screenWidth <= 767) {
+    showBtn();
+    booksToLoad++;
+    const books = await topBooks(category, screenSize,booksToLoad);
+    renderBooksAll(books,category);
+  } else if (screenWidth >= 768 && screenWidth <= 1279) {
+    showBtn();
+    booksToLoad+=2;
+    const books = await topBooks(category, screenSize,booksToLoad);
+    renderBooksAll(books,category);
+  } else{
+    hideBtn();
+  }
+};
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

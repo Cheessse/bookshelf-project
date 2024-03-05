@@ -86,3 +86,10 @@ export function updateShoppingList() {
       console.error('Error updating shopping list:', error.message);
   }
 }
+export async function handleBookClick(event) {
+  event.preventDefault();
+  const currentElem = event.target.closest('.book-item');
+  if (currentElem) {
+    const bookId = currentElem.attributes.id.value;
+    modalAboutBook(bookId);}
+  }

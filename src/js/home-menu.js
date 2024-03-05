@@ -23,6 +23,7 @@
 //     });
 // };
 // ! ============================================================================================================*/
+
 import { categoryList } from '../books API/books-api';
 import { loadBooks } from './home-books';
 import { loadBooksAllCat } from './home-books';
@@ -47,6 +48,7 @@ window.onload = function () {
         .catch(error => {
             console.error('Error fetching data;', error);
         });
+    loadBooksAllCat();
 };
 
 categoryBlock.addEventListener('click', async event => {
@@ -54,7 +56,8 @@ categoryBlock.addEventListener('click', async event => {
     if (event.target.tagName === 'P') {
         const selectedCategory = event.target.textContent;
         loadBooks(selectedCategory);
-    } else if (event.target.tagName === 'Li') {
+    } else if (event.target.id === 'title') {
         loadBooksAllCat();
+        console.log(loadBooksAllCat());
     }
 });

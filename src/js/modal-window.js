@@ -68,7 +68,7 @@ export function removeBook(id) {
   updateShoppingList();}
 
 export function checkLocalStorage(book) {
-  let permanentLS = localStorage.getItem(`idBooks`);
+  let permanentLS = localStorageAPI.getItem(`idBooks`);
 
   if (!permanentLS || permanentLS === '' || !permanentLS.includes(book.id)) {
     btn.textContent = 'Add to shopping list';
@@ -77,4 +77,12 @@ export function checkLocalStorage(book) {
     addMessage.hidden = false;
   }
   btn.attributes.id.value = book.id;
+}
+export function updateShoppingList() {
+  try {
+      const shoppingList = localStorageAPI.getAllBooks();
+      localStorage.setItem('idBooks', JSON.stringify(shoppingList));
+  } catch (error) {
+      console.error('Error updating shopping list:', error.message);
+  }
 }

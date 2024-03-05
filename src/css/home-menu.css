@@ -1,6 +1,6 @@
 /** MOBILE CSS */
 .slider-container {
-    margin-top: 80px;
+    margin-top: 100px;
     overflow-y: auto;
 }
 
@@ -17,7 +17,6 @@
     background-color: #f0f0f0;
 }
 
-/** ================================================================= */
 #category-list {
     width: 307px;
     height: 228px;
@@ -31,16 +30,12 @@
 
 #category-list::-webkit-scrollbar-thumb {
     background: #e0e0e0;
-    /* Цвет ползунка */
     border-radius: 12px;
-    /* Скругление углов ползунка */
     height: 114px;
-    /* Высота ползунка */
 }
 
 #title {
     cursor: pointer;
-    /*  */
     margin-bottom: 24px;
     font-weight: 700;
     font-size: 16px;
@@ -74,7 +69,6 @@
 }
 
 /**=====  TABLET ===================================================================================  */
-
 @media screen and (min-width: 768px) {
     .slider-container {
         overflow-y: auto;
@@ -102,14 +96,11 @@
         font-size: 18px;
         line-height: 133%;
     }
-
 }
 
 /**=====  FULL-SCR ===================================================================================  */
 @media screen and (min-width: 1440px) {
-
     #category-list {
         width: 328px;
     }
-
 }

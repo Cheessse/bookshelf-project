@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-
+import 'swiper/css'
 import { support } from '../js/support';
 
 const swiperOptions = {
@@ -67,3 +67,4 @@ function toggleBtn() {
 function rotateBtn() {
     refs.btn.classList.toggle('support-btn-up')
 }
+

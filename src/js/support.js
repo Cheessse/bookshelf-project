@@ -7,7 +7,7 @@ import united24_2x from '/img/United24_2x.png';
 import medicalCorps from '/img/MedicalCorps.png'; 
 import medicalCorps2x from '/img/MedicalCorps2x.png'; 
 import medicalSans from '/img/MedicalSans.png'; 
-import medicalSans2x from '../img/MedicalSans2x.png'; 
+import medicalSans2x from '/img/MedicalSans2x.png'; 
 import razom from '/img/RAZOM.png'; 
 import razom2x from '/img/RAZOM2x.png'; 
 import againstHunger from '/img/AgainstHunger.png'; 

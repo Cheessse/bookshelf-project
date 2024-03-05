@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const booksContainer = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector('.book-item');
-const btnSeemore=document.querySelector('#btn-seemore');
+const btnSeemore = document.querySelector('#btn-seemore');
+const categoryElement = document.querySelector('.container-category-one');
 
 let booksToLoad = 5;
 
@@ -57,8 +58,11 @@ function renderBooks(books, category) {
   booksContainer.innerHTML = '';
   booksContainerAll.innerHTML = '';
 
+  const categoryText = category;
+  const words = categoryText.split(' ');
+  const lastWord = words.pop();
   const markup =
-    `<h3 class="container-category-one">${category}</h3>` +
+    `<h3 class="container-category-one">${words.join(' ') + ' <span class="last-word">' + lastWord + '</span>'}</h3>` +
     templateBooks(books);
 
   booksContainer.innerHTML = markup;
@@ -94,15 +98,14 @@ export async function loadBooksAllCat() {
     renderBooksAll(data);
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
-
   }
 }
 
-function showBtn(){
+function showBtn() {
   btnSeemore.classList.remove('hidden');
 }
 
-function hideBtn(){
+function hideBtn() {
   btnSeemore.classList.add('hidden');
 }
 
@@ -111,8 +114,6 @@ function hideBtn(){
 // function showMoreBooks{
 
 // }
-
-
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

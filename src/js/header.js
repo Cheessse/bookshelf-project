@@ -9,9 +9,9 @@
     openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
 
     if (isMenuOpen) {
-      menuIcon.querySelector('use').setAttribute('href', './img/symbol-defs.svg#icon-burger');
+      menuIcon.querySelector('use').setAttribute('href', "./img/symbol-defs.svg#icon-burger");
     } else {
-      menuIcon.querySelector('use').setAttribute('href', '../img/symbol-defs.svg#icon-x');
+      menuIcon.querySelector('use').setAttribute('href', "./img/symbol-defs.svg#icon-x");
     }
   };
 

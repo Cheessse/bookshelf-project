@@ -1,7 +1,7 @@
 import { booksId } from '../books API/books-api';
 import iziToast from 'izitoast';
 import { openAndCloseModal } from './open-close-modal';
-import {SHOPPING_LIST_KEY, localStorageAPI} from './local-storage';
+import { localStorageAPI } from './local-storage';
 
 const bookIMG = document.querySelector('.popup-book-image');
 const bookTitle = document.querySelector('.popup-book-title');
@@ -50,7 +50,7 @@ export function addOrRemoveBook(e) {
 }
 
 export function addBook(id) {
-  let idBooks = localStorageAPI.getAllBooks(); 
+  let idBooks = localStorageAPI.getAllBooks();
   idBooks.push(id);
   localStorageAPI.addToShoppingList(idBooks);
   btn.textContent = 'Remove from the shopping list';
@@ -65,7 +65,8 @@ export function removeBook(id) {
   localStorageAPI.addToShoppingList(idBooks);
   btn.textContent = 'Add to shopping list';
   addMessage.hidden = true;
-  updateShoppingList();}
+  updateShoppingList();
+}
 
 export function checkLocalStorage(book) {
   let permanentLS = localStorageAPI.getItem(`idBooks`);
@@ -80,10 +81,10 @@ export function checkLocalStorage(book) {
 }
 export function updateShoppingList() {
   try {
-      const shoppingList = localStorageAPI.getAllBooks();
-      localStorage.setItem('idBooks', JSON.stringify(shoppingList));
+    const shoppingList = localStorageAPI.getAllBooks();
+    localStorage.setItem('idBooks', JSON.stringify(shoppingList));
   } catch (error) {
-      console.error('Error updating shopping list:', error.message);
+    console.error('Error updating shopping list:', error.message);
   }
 }
 export async function handleBookClick(event) {
@@ -91,5 +92,6 @@ export async function handleBookClick(event) {
   const currentElem = event.target.closest('.book-item');
   if (currentElem) {
     const bookId = currentElem.attributes.id.value;
-    modalAboutBook(bookId);}
+    modalAboutBook(bookId);
   }
+}

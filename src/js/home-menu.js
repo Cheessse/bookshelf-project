@@ -3,6 +3,7 @@ import { loadBooks } from './home-books';
 import { loadBooksAllCat } from './home-books';
 
 const categoryBlock = document.querySelector('#category-list');
+let category;
 window.onload = function () {
     const myCategoryList = document.getElementById('category-list');
     const title = document.createElement('li');
@@ -21,7 +22,7 @@ window.onload = function () {
         .catch(error => {
             console.error('Error fetching data;', error);
         });
-    loadBooksAllCat(categoryBlock);
+    loadBooksAllCat(category);
 };
 
 categoryBlock.addEventListener('click', async event => {

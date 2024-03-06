@@ -1,6 +1,7 @@
 import amazon from '../img/symbol-defs.svg#icon-amazon';
 import appleBook from '../img/symbol-defs.svg#icon-ibooks';
 import trash from '../img/symbol-defs.svg#icon-trash';
+
 import {
   addOrRemoveBook,
   addBook,
@@ -20,11 +21,12 @@ function renderBooksFromLS() {
   if (booksLS.length === 0) {
     placeholder.style.display = 'block';
   } else {
+    placeholder.style.display = 'none';
     const markup = booksLS
       .map(
         book => `
        <div class="card">
-        <img src="${book.book_image}" alt="book cover" class="book-cover">
+        <img src="${book.book_image}" alt="book cover" class="book-cover" >
         <div class="about">
           <h2 class="book-title">${book.title}</h2>
           <p class="book-category">${book.list_name}</p>
@@ -78,13 +80,14 @@ function renderBooksFromLS() {
 renderBooksFromLS();
 
 function removeFromShoppingList(bookId) {
-  const savedBooks = getLocalStorageItem(SHOPPING_LIST_KEY);
+  const booksLS = JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) || [];
 
-  if (!savedBooks || savedBooks.length === 0) {
+  if (!booksLS || booksLS.length === 0) {
     return;
   }
 
-  const updatedBooks = savedBooks.filter(book => book._id !== bookId);
+  const updatedBooks = booksLS.filter(book => book._id !== bookId);
+  console.log(updatedBooks);
 
   toLocalStorage(SHOPPING_LIST_KEY, updatedBooks);
 }
@@ -105,3 +108,4 @@ function updateCardView() {
     supportBlock.style.display = 'block';
   }
 }
+updateCardView();

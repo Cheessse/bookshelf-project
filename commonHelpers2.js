@@ -1,4 +1,4 @@
-import{S as a}from"./assets/modal-window-194c81a0.js";import"./assets/vendor-428a2275.js";const l="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",n="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",d="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",i=document.querySelector(".shopping-list-default-div");function p(){const s=JSON.parse(localStorage.getItem(a))||[],o=document.querySelector(".shopping-list-render");if(s.length===0)i.style.display="block";else{const t=s.map(e=>`
+import{S as a}from"./assets/modal-window-fb62e382.js";import"./assets/vendor-428a2275.js";const l="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",n="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",d="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",i=document.querySelector(".shopping-list-default-div");function p(){const s=JSON.parse(localStorage.getItem(a))||[],o=document.querySelector(".shopping-list-render");if(s.length===0)i.style.display="block";else{const t=s.map(e=>`
        <div class="card">
         <img src="${e.book_image}" alt="book cover" class="book-cover">
         <div class="about">

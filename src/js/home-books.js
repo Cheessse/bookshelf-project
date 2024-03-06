@@ -3,15 +3,14 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-
+import { categoryList } from '../books API/books-api';
 
 const booksContainer = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector('.book-item');
 const btnSeemore = document.querySelector('#btn-seemore');
 
 const screenWidth = window.innerWidth;
-let screenSize;
-let booksToLoad;
+let category;
 
 async function booksByCategory(selectedCategory) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/category';
@@ -24,34 +23,27 @@ async function booksByCategory(selectedCategory) {
     },
   };
 
-  if (screenSize) {
-    url += `&screenSize=${screenSize}`;
-  }
-
-
   const res = await axios.get(url, options);
   return res.data;
 }
 
-async function topBooks(category, screenSize,limit) {
+async function topBooks(category, limit) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
   const encodeCat = encodeURIComponent(category);
-  const url = category ? `${BASE_URL}?category=${encodeCat}&limit=${limit}` : `${BASE_URL}?limit=${limit}`;
+  let url;
+  if (limit) {
+    url = `${BASE_URL}?category=${encodeCat}&limit=${limit}`;
+  } else {
+    url = `${BASE_URL}?category=${encodeCat}`;
+  }
   const options = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   };
-
-  if (screenSize === 'mobile') {
-    booksToLoad = 1;
-  } else if (screenSize === 'tablet') {
-    booksToLoad = 3;
-  }
-
   const res = await axios.get(url, options);
-  return res.data.slice(0, booksToLoad);
+  return res.data;
 }
 
 function templateBook(book) {
@@ -63,7 +55,7 @@ function templateBook(book) {
 }
 
 function templateBooks(books) {
-  return books.map(templateBook).join('');
+  return books.map(book => templateBook(book)).join('');
 }
 
 function renderBooks(books, category) {
@@ -87,11 +79,12 @@ function renderBooksAll(categories) {
 
   const title = `<h2 class="container-title">Best Sellers <span>Book</span></h2>`;
   let markup = '';
-  for (const category of categories) {
+
+  categories.forEach(category => {
     markup +=
-      `<h3 class="container-category-all">${category.list_name}</h3>` +
+      `<h3 class="container-category-all">${category.category}</h3>` +
       templateBooks(category.books);
-  }
+  });
 
   booksContainerAll.innerHTML = title + markup;
 }
@@ -110,16 +103,28 @@ export async function loadBooksAllCat(category) {
   try {
     let limit;
     if (screenWidth >= 375 && screenWidth <= 767) {
-      limit = 1; 
+      limit = 1;
+      // showBtn();
     } else if (screenWidth >= 768 && screenWidth <= 1279) {
-      limit = 3; 
+      limit = 3;
+      // showBtn();
     } else {
-      limit = 5; 
+      limit = 5;
+      return;
     }
 
-    const books = await topBooks(category, screenSize, limit);
-    renderBooksAll(books);
-    showMoreBooks(category);
+    const allCat = await categoryList(category);
+    const allPromises = allCat.map(async cat => {
+      const allBooks = await topBooks(cat.list_name, limit);
+      const slicedBooks = allBooks.slice(0, limit);
+      return {
+        category: cat.list_name,
+        books: slicedBooks,
+      };
+    });
+
+    const categoriesWithBooks = await Promise.all(allPromises);
+    renderBooksAll(categoriesWithBooks);
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
@@ -134,25 +139,31 @@ function hideBtn() {
 }
 
 btnSeemore.addEventListener('click', event => {
-event.preventDefault();
-showMoreBooks(category);
+  event.preventDefault();
+  showMoreBooks(category);
 });
 
-async function showMoreBooks(category){
-  if (screenWidth >= 375 && screenWidth <= 767) {
-    showBtn();
-    booksToLoad++;
-    const books = await topBooks(category, screenSize,booksToLoad);
-    renderBooksAll(books,category);
-  } else if (screenWidth >= 768 && screenWidth <= 1279) {
-    showBtn();
-    booksToLoad+=2;
-    const books = await topBooks(category, screenSize,booksToLoad);
-    renderBooksAll(books,category);
-  } else{
-    hideBtn();
-  }
-};
+async function showMoreBooks(category) {
+  // try {
+  //   let limit;
+  //   if (screenWidth >= 375 && screenWidth <= 767) {
+  //     limit = 1;
+  //     limit += 4;
+  //   } else if (screenWidth >= 768 && screenWidth <= 1279) {
+  //     limit = 3;
+  //     limit += 2;
+  //   } else {
+  //     hideBtn();
+  //     return;
+  //   }
+  //   const allCat = await categoryList(category);
+  //   const filteredAllCat = await topBooks(allCat.books);
+  //   const slicedBooks = filteredAllCat.slice(0, limit);
+  //   renderBooksAll(slicedBooks);
+  // } catch (error) {
+  //   showError('Sorry, no books! ', 'red', 'white');
+  // }
+}
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

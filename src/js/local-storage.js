@@ -1,4 +1,4 @@
-export const SHOPPING_LIST_KEY = 'list';
+const SHOPPING_LIST_KEY = 'list';
 
 function addToShoppingList(book) {
   const shopList = getAllBooks();
@@ -11,6 +11,7 @@ function getAllBooks() {
 }
 
 export const localStorageAPI = {
+  SHOPPING_LIST_KEY,
   addToShoppingList,
   getAllBooks,
 };

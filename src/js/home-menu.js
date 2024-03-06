@@ -21,7 +21,7 @@ window.onload = function () {
         .catch(error => {
             console.error('Error fetching data;', error);
         });
-    loadBooksAllCat(category);
+    loadBooksAllCat(categoryBlock);
 };
 
 categoryBlock.addEventListener('click', async event => {

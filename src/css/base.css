@@ -1,0 +1,36 @@
+.theme-light {
+  --header-color: #fff;
+  --body-color: #e0e0e0;
+  --yellow: #eac645;
+  --violet: #4f2ee8;
+  --font-color: #111;
+}
+.theme-dark {
+  --header-color: #111;
+  --body-color: #202024;
+  --yellow: #eac645;
+  --violet: #4f2ee8;
+  --font-color: #ffffff;
+}
+
+/* @media screen and (min-width:1158px) {
+  .container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+  } }
+
+    @media screen and (min-width: 768px) {
+      .container {
+        max-width: 768px;
+        padding-left: 16px;
+        padding-right: 16px;
+      } }
+
+     @media screen and (min-width: 768px) {
+    .container {
+    max-width: 768px;
+    padding-left: 16px;
+     padding-right: 16px;
+    }
+        }   */

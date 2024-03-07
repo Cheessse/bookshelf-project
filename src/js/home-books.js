@@ -3,14 +3,21 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { categoryList } from '../books API/books-api';
+// import { booksByCategory, topBooks } from '../books API/books-api';
 
-const booksContainer = document.querySelector('.books-container-one-cat');
-const booksContainerAll = document.querySelector('.book-item');
-const btnSeemore = document.querySelector('#btn-seemore');
+const booksContainerOne = document.querySelector('.books-container-one-cat');
+const booksContainerAll = document.querySelector(
+  '.books-container-all-cat-block'
+);
+const booksContainerAllTit = document.querySelector(
+  '.books-container-all-cat-title'
+);
+const btnSeemore = document.querySelectorAll('button');
+
 
 const screenWidth = window.innerWidth;
 let category;
+let limit;
 
 async function booksByCategory(selectedCategory) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/category';
@@ -47,19 +54,30 @@ async function topBooks(category, limit) {
 }
 
 function templateBook(book) {
-  return ` <li class="book-item-img"><img src="${book.book_image}" alt="${book.description}" srcset="${book.book_image}" width="335" height="485" class="book-image">
-  </li>
+  return `<div class="book-item">
+  <ul class="book-item-block">
+    <li class="book-item-img">
+      <img
+        src="${book.book_image}"
+        alt="${book.description}"
+        srcset="${book.book_image}"
+        width="335"
+        height="485"
+        class="book-image"
+      />
+    </li>
     <li class="book-item-title">${book.title}</li>
     <li class="book-item-author">${book.author}</li>
-  </li>`;
+  </ul>
+</div>`;
 }
 
 function templateBooks(books) {
-  return books.map(book => templateBook(book)).join('');
+  return books.map(templateBook).join('');
 }
 
 function renderBooks(books, category) {
-  booksContainer.innerHTML = '';
+  booksContainerOne.innerHTML = '';
   booksContainerAll.innerHTML = '';
 
   const categoryText = category;
@@ -70,11 +88,11 @@ function renderBooks(books, category) {
       words.join(' ') + ' <span class="last-word">' + lastWord + '</span>'
     }</h3>` + templateBooks(books);
 
-  booksContainer.innerHTML = markup;
+  booksContainerAll.innerHTML = markup;
 }
 
 function renderBooksAll(categories) {
-  booksContainer.innerHTML = '';
+  booksContainerOne.innerHTML = '';
   booksContainerAll.innerHTML = '';
 
   const title = `<h2 class="container-title">Best Sellers <span>Book</span></h2>`;
@@ -82,16 +100,16 @@ function renderBooksAll(categories) {
 
   categories.forEach(category => {
     markup +=
-      `<h3 class="container-category-all">${category.category}</h3>` +
-      templateBooks(category.books);
+      `<h3 class="container-category-all">${category.list_name}</h3>` +
+      templateBooks(category.books) +
+      `<button type="button" id="btn-seemore" class="hidden" data-category="${category.list_name}">SEE MORE</button>`;
   });
-
-  booksContainerAll.innerHTML = title + markup;
+  booksContainerAllTit.innerHTML = title;
+  booksContainerAll.innerHTML = markup;
 }
 
 export async function loadBooks(selectedCategory) {
   try {
-    hideBtn();
     const data = await booksByCategory(selectedCategory);
     renderBooks(data, selectedCategory);
   } catch (error) {
@@ -101,68 +119,76 @@ export async function loadBooks(selectedCategory) {
 
 export async function loadBooksAllCat(category) {
   try {
-    let limit;
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-      // showBtn();
     } else if (screenWidth >= 768 && screenWidth <= 1279) {
       limit = 3;
-      // showBtn();
     } else {
       limit = 5;
       return;
     }
 
-    const allCat = await categoryList(category);
-    const allPromises = allCat.map(async cat => {
-      const allBooks = await topBooks(cat.list_name, limit);
-      const slicedBooks = allBooks.slice(0, limit);
-      return {
-        category: cat.list_name,
-        books: slicedBooks,
-      };
+    let topBookList = await topBooks(category,limit);
+    topBookList = topBookList.map(el => {
+      el.books = el.books.slice(0, limit);
+      return el;
     });
-
-    const categoriesWithBooks = await Promise.all(allPromises);
-    renderBooksAll(categoriesWithBooks);
+    renderBooksAll(topBookList);
+    visibBtn();
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
 }
 
+function visibBtn() {
+  if (limit === 1 || limit === 3) {
+    showBtn();
+  } else {
+    hideBtn();
+  }
+}
+
 function showBtn() {
-  btnSeemore.classList.remove('hidden');
+  for (let i = 0; i < btnSeemore.length; i++) {
+    btnSeemore[i].classList.remove('hidden');
+  }
 }
 
 function hideBtn() {
-  btnSeemore.classList.add('hidden');
+  for (let i = 0; i < btnSeemore.length; i++) {
+    btnSeemore[i].classList.add('hidden');
+  }
 }
 
-btnSeemore.addEventListener('click', event => {
-  event.preventDefault();
-  showMoreBooks(category);
+btnSeemore.forEach(btn => {
+  btn.addEventListener('click', async event => {
+    const category = event.target.dataset.category;
+    if (category) {
+      await showMoreBooks(category);
+    }
+  });
 });
 
 async function showMoreBooks(category) {
-  // try {
-  //   let limit;
-  //   if (screenWidth >= 375 && screenWidth <= 767) {
-  //     limit = 1;
-  //     limit += 4;
-  //   } else if (screenWidth >= 768 && screenWidth <= 1279) {
-  //     limit = 3;
-  //     limit += 2;
-  //   } else {
-  //     hideBtn();
-  //     return;
-  //   }
-  //   const allCat = await categoryList(category);
-  //   const filteredAllCat = await topBooks(allCat.books);
-  //   const slicedBooks = filteredAllCat.slice(0, limit);
-  //   renderBooksAll(slicedBooks);
-  // } catch (error) {
-  //   showError('Sorry, no books! ', 'red', 'white');
-  // }
+  try {
+    let limit;
+    if (screenWidth >= 375 && screenWidth <= 767) {
+      limit = 5;
+    } else if (screenWidth >= 768 && screenWidth <= 1279) {
+      limit = 5;
+    } else {
+      return;
+    }
+
+    let moreBooks = await topBooks(category,limit);
+    moreBooks = moreBooks.map(el => {
+      el.books = el.books.slice(0, limit);
+      return el;
+    });
+    renderBooksAll(moreBooks);
+  } catch (error) {
+    showError('Sorry, no books! ', 'red', 'white');
+  }
 }
 
 function showError(text, bgColor, txtColor) {

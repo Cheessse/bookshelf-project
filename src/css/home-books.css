@@ -1,5 +1,6 @@
 ul {
   list-style: none;
+  padding-left: 0px;
 }
 
 img {
@@ -26,6 +27,8 @@ img {
   width: 335px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-top: 0px;
   padding-left: 0px;
 }

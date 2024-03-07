@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { booksByCategory, topBooks } from '../books API/books-api';
-import { modalAboutBook } from './modal-window';
+// import { modalAboutBook } from './modal-window';
 
 const booksContainerOne = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector(
@@ -92,7 +92,7 @@ export async function loadBooksAllCat(category) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-    } else if (screenWidth >= 768 && screenWidth < 1279) {
+    } else if (screenWidth >= 768 && screenWidth < 1158 ) {
       limit = 3;
     } else {
       limit = 5;
@@ -105,7 +105,6 @@ export async function loadBooksAllCat(category) {
     });
     renderBooksAll(topBookList);
     visibBtn();
-    handleBookClick();
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
@@ -142,7 +141,7 @@ async function showMoreBooks(event, categoryFromButton) {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
       limit += 4;
-    } else if (screenWidth >= 768 && screenWidth < 1279) {
+    } else if (screenWidth >= 768 && screenWidth < 1158) {
       limit = 3;
       limit += 2;
     } else {
@@ -170,20 +169,20 @@ booksContainerAll.addEventListener('click', async event => {
   }
 });
 
-const bookItems = document.querySelectorAll('.hidden-overflow');
+// const bookItems = document.querySelectorAll('.hidden-overflow');
 
-bookItems.forEach(bookItem => {
-  bookItem.addEventListener('click', handleBookClick);
-});
+// bookItems.forEach(bookItem => {
+//   bookItem.addEventListener('click', handleBookClick);
+// });
 
-async function handleBookClick(event) {
-  event.preventDefault();
-  const currentElem = event.target.closest('.book-item');
-  if (currentElem) {
-    const bookId = currentElem.dataset.bookId;
-    modalAboutBook(bookId);
-  }
-}
+// async function handleBookClick(event) {
+//   event.preventDefault();
+//   const currentElem = event.target.closest('.book-item');
+//   if (currentElem) {
+//     const bookId = currentElem.dataset.bookId;
+//     modalAboutBook(bookId);
+//   }
+// }
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

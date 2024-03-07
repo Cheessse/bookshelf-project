@@ -61,7 +61,12 @@
     line-height: 133%;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: #800080;
+    color: #4f2ee8;
+}
+
+#category-list p:hover~#title {
+    font-weight: 400;
+    /* Изменение при наведении на #category-list p:hover */
 }
 
 #p-list {

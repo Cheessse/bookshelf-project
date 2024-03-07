@@ -1,3 +1,4 @@
+@import url(./base.css);
 @import url(./header.css);
 @import url(./home-books.css);
 @import url(./home-menu.css);
@@ -7,4 +8,3 @@
 @import url(./pagination.css);
 @import url(./loader.css);
 @import url(./scroll-up.css);
-@import url(./theme-light-dark.css);

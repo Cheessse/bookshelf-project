@@ -2,10 +2,15 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { booksByCategory, topBooks } from '../books API/books-api';
+import { modalAboutBook } from './modal-window';
 
 const booksContainerOne = document.querySelector('.books-container-one-cat');
-const booksContainerAll = document.querySelector('.books-container-all-cat-block');
-const booksContainerAllTit = document.querySelector('.books-container-all-cat-title');
+const booksContainerAll = document.querySelector(
+  '.books-container-all-cat-block'
+);
+const booksContainerAllTit = document.querySelector(
+  '.books-container-all-cat-title'
+);
 
 const screenWidth = window.innerWidth;
 let limit;
@@ -22,6 +27,7 @@ function templateBook(book) {
         height="485"
         class="book-image"
       />
+      <p class="hidden-overflow">QUICK VIEW</p>
     </li>
     <li class="book-item-title">${book.title}</li>
     <li class="book-item-author">${book.author}</li>
@@ -44,9 +50,10 @@ function renderBooks(books, category) {
   const markup =
     `<h3 class="container-category-one">${
       words.join(' ') + ' <span class="last-word">' + lastWord + '</span>'
-    }</h3>` + templateBooks(books);
+    }</h3>` +
+    `<div class="books-container-one-cat-block">${templateBooks(books)}</div>`;
 
-  booksContainerAll.innerHTML = markup;
+  booksContainerOne.innerHTML = markup;
 }
 
 function renderBooksAll(categories) {
@@ -57,7 +64,15 @@ function renderBooksAll(categories) {
   let markup = '';
 
   categories.forEach(category => {
-    markup += `<h3 class="container-category-all">${category.list_name}</h3>` + templateBooks(category.books) + `<button type="button" class="btn-seemore hidden" data-category="${category.list_name}">SEE MORE</button>`;
+    markup += `<div class="cat-books-btn">
+      <h3 class="container-category-all">${category.list_name}</h3>
+    <div class="books-container-all-cat-block-bpt">${templateBooks(
+      category.books
+    )}</div>
+    <button type="button" class="btn-seemore hidden" data-category="${
+      category.list_name
+    }">SEE MORE</button>
+    </div>`;
   });
   booksContainerAllTit.innerHTML = title;
   booksContainerAll.innerHTML = markup;
@@ -66,7 +81,8 @@ function renderBooksAll(categories) {
 export async function loadBooks(selectedCategory) {
   try {
     const data = await booksByCategory(selectedCategory);
-    renderBooks(data,selectedCategory);
+    renderBooks(data, selectedCategory);
+    handleBookClick();
   } catch (error) {
     showError('Sorry, there are no books for these category! ', 'red', 'white');
   }
@@ -76,7 +92,7 @@ export async function loadBooksAllCat(category) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-    } else if (screenWidth >= 768 && screenWidth <= 1279) {
+    } else if (screenWidth >= 768 && screenWidth < 1279) {
       limit = 3;
     } else {
       limit = 5;
@@ -89,6 +105,7 @@ export async function loadBooksAllCat(category) {
     });
     renderBooksAll(topBookList);
     visibBtn();
+    handleBookClick();
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
@@ -125,7 +142,7 @@ async function showMoreBooks(event, categoryFromButton) {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
       limit += 4;
-    } else if (screenWidth >= 768 && screenWidth <= 1279) {
+    } else if (screenWidth >= 768 && screenWidth < 1279) {
       limit = 3;
       limit += 2;
     } else {
@@ -139,6 +156,7 @@ async function showMoreBooks(event, categoryFromButton) {
     });
     renderBooksAll(moreBooks);
     visibBtn();
+    handleBookClick(event);
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
@@ -151,6 +169,21 @@ booksContainerAll.addEventListener('click', async event => {
     await showMoreBooks(event, categoryFromButton);
   }
 });
+
+const bookItems = document.querySelectorAll('.hidden-overflow');
+
+bookItems.forEach(bookItem => {
+  bookItem.addEventListener('click', handleBookClick);
+});
+
+async function handleBookClick(event) {
+  event.preventDefault();
+  const currentElem = event.target.closest('.book-item');
+  if (currentElem) {
+    const bookId = currentElem.dataset.bookId;
+    modalAboutBook(bookId);
+  }
+}
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

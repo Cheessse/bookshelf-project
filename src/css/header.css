@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;    
+}
+
 .header {
     font-family: "DM Sans", sans-serif;
 }
@@ -29,14 +33,14 @@
 
 .header {
     z-index: 2000;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     border: 1.50px solid #111;
     border-radius: 0 0 8px 8px;
     width: 100%;
     background: #fff;
-    margin: 0;
+    margin: 0 0 40px 0;
     transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
 }
 
@@ -236,6 +240,7 @@ input:checked+.slider-black:before {
     height: 28px;
     padding: 0px;
     margin: 0px;
+    cursor: pointer;
 }
 
 /* button.header-mob-menu-btn :hover {

@@ -1,20 +1,9 @@
-.theme-light {
-  --header-color: #fff;
-  --body-color: #e0e0e0;
-  --yellow: #eac645;
-  --violet: #4f2ee8;
-  --font-color: #111;
-}
-.theme-dark {
+:root {
   --header-color: #111;
   --body-color: #202024;
   --yellow: #eac645;
   --violet: #4f2ee8;
   --font-color: #ffffff;
-}
-
-body {
-  background-color: var(--body-color);
 }
 
 /* @media screen and (min-width:1158px) {

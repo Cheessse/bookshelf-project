@@ -1,57 +1,37 @@
-// const slider = document.querySelector('#slider');
-
-// function setTheme(themeName) {
-//   localStorage.setItem('theme', themeName);
-//   document.documentElement.className = themeName;
-// }
-
-// // function to toggle between light and dark theme
-// function toggleTheme() {
-//   if (localStorage.getItem('theme') === 'theme-dark') {
-//     setTheme('theme-light');
-//   } else {
-//     setTheme('theme-dark');
-//   }
-// }
-
-// slider.addEventListener('click', toggleTheme);
-
-// // Immediately invoked function to set the theme on initial load
-// function checkTheme() {
-//   if (localStorage.getItem('theme') === 'theme-dark') {
-//     setTheme('theme-dark');
-//     document.getElementById('slider').checked = false;
-//   } else {
-//     setTheme('theme-light');
-//     document.getElementById('slider').checked = true;
-//   }
-// }
-
-// ================================================================
-
 const slider = document.querySelector('#slider');
+const themeStyle = document.querySelector('#theme-style');
 
-function setTheme(themeName) {
-  localStorage.setItem('theme', themeName);
-  document.documentElement.className = themeName;
+let savedTheme = localStorage.getItem('theme');
+
+// Встановлюємо тему за замовчуванням або збережену тему
+if (savedTheme) {
+  themeStyle.setAttribute('href', `./css/${savedTheme}.css`);
 }
 
-function changeTheme() {
+// function to set the theme
+function setTheme(themeName) {
+  localStorage.setItem('theme', themeName);
+  themeStyle.setAttribute('href', `./css/${themeName}.css`);
+}
+
+// function to toggle between light and dark theme
+function toggleTheme() {
   if (slider.checked) {
-    setTheme('theme-light');
+    setTheme('styles-light-theme');
   } else {
-    setTheme('theme-dark');
+    setTheme('styles-dark-theme');
   }
 }
 
-slider.addEventListener('change', changeTheme);
+slider.addEventListener('change', toggleTheme);
 
+// Immediately invoked function to set the theme on initial load
 function checkTheme() {
-  if (localStorage.getItem('theme') === 'theme-dark') {
-    setTheme('theme-dark');
+  if (savedTheme === 'styles-dark-theme') {
+    setTheme('styles-dark-theme');
     slider.checked = false;
   } else {
-    setTheme('theme-light');
+    setTheme('styles-light-theme');
     slider.checked = true;
   }
 }

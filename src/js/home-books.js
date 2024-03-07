@@ -92,7 +92,7 @@ export async function loadBooksAllCat(category) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-    } else if (screenWidth >= 768 && screenWidth < 1158) {
+    } else if (screenWidth >= 768 && screenWidth < 1279) {
       limit = 3;
     } else {
       limit = 5;
@@ -142,7 +142,7 @@ async function showMoreBooks(event, categoryFromButton) {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
       limit += 4;
-    } else if (screenWidth >= 768 && screenWidth < 1158) {
+    } else if (screenWidth >= 768 && screenWidth < 1279) {
       limit = 3;
       limit += 2;
     } else {

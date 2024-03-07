@@ -15,9 +15,11 @@ function displayShoppingList(pageNumber, itemsPerPage) {
 }
 
 const itemsPerPage = 3;
+const shoppingListData = localStorage.getItem('shoppingList');
+const totalItems = shoppingListData ? JSON.parse(shoppingListData).length : 0;
 
 const pagination = new Pagination(document.getElementById('pagination'), {
-    totalItems: JSON.parse(localStorage.getItem('shoppingList')).length,
+    totalItems: totalItems,
     itemsPerPage: itemsPerPage,
     visiblePages: 5,
     centerAlign: true

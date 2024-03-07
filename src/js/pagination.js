@@ -1,6 +1,11 @@
 import Pagination from 'tui-pagination';
 
 function displayShoppingList(pageNumber, itemsPerPage) {
+    if (!localStorage.getItem('shoppingList')) {
+        console.error('Список покупок не знайдено в локальному сховищі.');
+        return;
+    }
+    
     const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
     const startIndex = (pageNumber - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;

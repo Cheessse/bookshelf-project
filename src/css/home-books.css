@@ -57,7 +57,7 @@ img {
   text-transform: uppercase;
 }
 
-#btn-seemore {
+.btn-seemore {
   font-family: 'DM Sans';
   font-size: 14px;
   font-weight: 500;

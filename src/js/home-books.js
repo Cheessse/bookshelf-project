@@ -10,11 +10,12 @@ const booksContainerAll = document.querySelector(
 const booksContainerAllTit = document.querySelector(
   '.books-container-all-cat-title'
 );
-const btnSeemore = document.querySelectorAll('button');
+
+const btnSeemore=document.querySelectorAll('.btn-seemore');
 
 const screenWidth = window.innerWidth;
-let category;
 let limit;
+let currentCategory;
 
 function templateBook(book) {
   return `<div class="book-item">
@@ -65,10 +66,11 @@ function renderBooksAll(categories) {
     markup +=
       `<h3 class="container-category-all">${category.list_name}</h3>` +
       templateBooks(category.books) +
-      `<button type="button" id="btn-seemore" class="hidden" data-category="${category.list_name}">SEE MORE</button>`;
+      `<button type="button" class="btn-seemore hidden" data-category="${category.list_name}">SEE MORE</button>`;
   });
   booksContainerAllTit.innerHTML = title;
   booksContainerAll.innerHTML = markup;
+  
 }
 
 export async function loadBooks(selectedCategory) {
@@ -90,7 +92,7 @@ export async function loadBooksAllCat(category) {
       limit = 5;
       return;
     }
-
+    currentCategory = category; 
     let topBookList = await topBooks(category,limit);
     topBookList = topBookList.map(el => {
       el.books = el.books.slice(0, limit);
@@ -112,47 +114,56 @@ function visibBtn() {
 }
 
 function showBtn() {
+ if (limit <= 5){
+  const btnSeemore = document.querySelectorAll('.btn-seemore');
   for (let i = 0; i < btnSeemore.length; i++) {
     btnSeemore[i].classList.remove('hidden');
   }
+ }
 }
 
 function hideBtn() {
+  if (limit >= 5){
+    const btnSeemore = document.querySelectorAll('.btn-seemore');
   for (let i = 0; i < btnSeemore.length; i++) {
     btnSeemore[i].classList.add('hidden');
   }
+  }
 }
 
-btnSeemore.forEach(btn => {
-  btn.addEventListener('click', async event => {
-    const category = event.target.dataset.category;
-    if (category) {
-      await showMoreBooks(category);
-    }
-  });
-});
-
-async function showMoreBooks(category) {
+async function showMoreBooks(event) {
   try {
-    let limit;
     if (screenWidth >= 375 && screenWidth <= 767) {
-      limit = 5;
+      limit = 1;
+      limit += 4;
     } else if (screenWidth >= 768 && screenWidth <= 1279) {
-      limit = 5;
+      limit = 3;
+      limit += 2;
     } else {
       return;
     }
-
-    let moreBooks = await topBooks(category,limit);
+    const categoryFromButton = event.target.dataset.category; 
+    let moreBooks = await topBooks(categoryFromButton,limit);
     moreBooks = moreBooks.map(el => {
       el.books = el.books.slice(0, limit);
       return el;
     });
-    renderBooksAll(moreBooks);
+    renderBooksAll(moreBooks,categoryFromButton);
+    visibBtn();
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
   }
 }
+
+booksContainerAll.addEventListener('click', async event => {
+  if (event.target && event.target.classList.contains('btn-seemore')) {
+    event.preventDefault();
+    const categoryFromButton = event.target.dataset.category;
+    await showMoreBooks(event, categoryFromButton); 
+  }
+});
+
+
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

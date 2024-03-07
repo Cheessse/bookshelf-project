@@ -3,7 +3,7 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// import { booksByCategory, topBooks } from '../books API/books-api';
+import { booksByCategory, topBooks } from '../books API/books-api';
 
 const booksContainerOne = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector(
@@ -14,44 +14,9 @@ const booksContainerAllTit = document.querySelector(
 );
 const btnSeemore = document.querySelectorAll('button');
 
-
 const screenWidth = window.innerWidth;
 let category;
 let limit;
-
-async function booksByCategory(selectedCategory) {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/category';
-  const encodeCat = encodeURIComponent(selectedCategory);
-  const url = `${BASE_URL}?category=${encodeCat}`;
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  const res = await axios.get(url, options);
-  return res.data;
-}
-
-async function topBooks(category, limit) {
-  const BASE_URL = 'https://books-backend.p.goit.global/books/top-books';
-  const encodeCat = encodeURIComponent(category);
-  let url;
-  if (limit) {
-    url = `${BASE_URL}?category=${encodeCat}&limit=${limit}`;
-  } else {
-    url = `${BASE_URL}?category=${encodeCat}`;
-  }
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  const res = await axios.get(url, options);
-  return res.data;
-}
 
 function templateBook(book) {
   return `<div class="book-item">

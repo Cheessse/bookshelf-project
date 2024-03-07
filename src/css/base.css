@@ -13,6 +13,10 @@
   --font-color: #ffffff;
 }
 
+body {
+  background-color: var(--body-color);
+}
+
 /* @media screen and (min-width:1158px) {
   .container {
     max-width: 1158px;

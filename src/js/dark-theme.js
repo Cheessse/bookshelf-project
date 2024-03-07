@@ -36,8 +36,7 @@ function setTheme(themeName) {
   document.documentElement.className = themeName;
 }
 
-// function to toggle between light and dark theme
-function toggleTheme() {
+function changeTheme() {
   if (slider.checked) {
     setTheme('theme-light');
   } else {
@@ -45,9 +44,8 @@ function toggleTheme() {
   }
 }
 
-slider.addEventListener('change', toggleTheme);
+slider.addEventListener('change', changeTheme);
 
-// Immediately invoked function to set the theme on initial load
 function checkTheme() {
   if (localStorage.getItem('theme') === 'theme-dark') {
     setTheme('theme-dark');
@@ -58,5 +56,4 @@ function checkTheme() {
   }
 }
 
-// Call checkTheme on initial load
 checkTheme();

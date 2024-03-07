@@ -91,7 +91,7 @@ function removeFromShoppingList(bookId) {
   const updatedBooks = booksLS.filter(book => book._id !== bookId);
   console.log(updatedBooks);
 
-  toLocalStorage(SHOPPING_LIST_KEY, updatedBooks);
+  toLocalStorage(localStorageAPI.SHOPPING_LIST_KEY, updatedBooks);
 }
 
 function isCardEmpty() {

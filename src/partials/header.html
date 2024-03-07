@@ -39,11 +39,20 @@
                 </label>
             </div>
 
-            <button type="button" class="header-mob-menu-btn js-open-menu" >
+            <!-- <button type="button" class="header-mob-menu-btn js-open-menu" >
                 <svg width="28" height="28" class="header-menu-icon">
                     <use href="./img/symbol-defs.svg#icon-burger"></use>
                 </svg>
-            </button>                    
+            </button> -->
+            <div class="header-mob-menu-btn js-open-menu" id="menuToggle">    
+                <svg class="header-menu-icon burger-icon" width="28" height="28">
+                  <use class="icon-burger" href="./img/symbol-defs.svg#icon-burger" ></use>
+                </svg>
+        
+                <svg class="header-menu-icon close-icon hidden" width="28" height="28">
+                  <use class="icon-close" href="./img/symbol-defs.svg#icon-x" ></use>
+                </svg>
+              </div> 
         </div>
     </div>           
 </header>

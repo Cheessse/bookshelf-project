@@ -4,18 +4,11 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { booksByCategory, topBooks } from '../books API/books-api';
 
 const booksContainerOne = document.querySelector('.books-container-one-cat');
-const booksContainerAll = document.querySelector(
-  '.books-container-all-cat-block'
-);
-const booksContainerAllTit = document.querySelector(
-  '.books-container-all-cat-title'
-);
-
-const btnSeemore=document.querySelectorAll('.btn-seemore');
+const booksContainerAll = document.querySelector('.books-container-all-cat-block');
+const booksContainerAllTit = document.querySelector('.books-container-all-cat-title');
 
 const screenWidth = window.innerWidth;
 let limit;
-let currentCategory;
 
 function templateBook(book) {
   return `<div class="book-item">
@@ -43,6 +36,7 @@ function templateBooks(books) {
 function renderBooks(books, category) {
   booksContainerOne.innerHTML = '';
   booksContainerAll.innerHTML = '';
+  booksContainerAllTit.innerHTML = '';
 
   const categoryText = category;
   const words = categoryText.split(' ');
@@ -63,20 +57,16 @@ function renderBooksAll(categories) {
   let markup = '';
 
   categories.forEach(category => {
-    markup +=
-      `<h3 class="container-category-all">${category.list_name}</h3>` +
-      templateBooks(category.books) +
-      `<button type="button" class="btn-seemore hidden" data-category="${category.list_name}">SEE MORE</button>`;
+    markup += `<h3 class="container-category-all">${category.list_name}</h3>` + templateBooks(category.books) + `<button type="button" class="btn-seemore hidden" data-category="${category.list_name}">SEE MORE</button>`;
   });
   booksContainerAllTit.innerHTML = title;
   booksContainerAll.innerHTML = markup;
-  
 }
 
 export async function loadBooks(selectedCategory) {
   try {
     const data = await booksByCategory(selectedCategory);
-    renderBooks(data, selectedCategory);
+    renderBooks(data,selectedCategory);
   } catch (error) {
     showError('Sorry, there are no books for these category! ', 'red', 'white');
   }
@@ -92,8 +82,7 @@ export async function loadBooksAllCat(category) {
       limit = 5;
       return;
     }
-    currentCategory = category; 
-    let topBookList = await topBooks(category,limit);
+    let topBookList = await topBooks(category, limit);
     topBookList = topBookList.map(el => {
       el.books = el.books.slice(0, limit);
       return el;
@@ -114,24 +103,24 @@ function visibBtn() {
 }
 
 function showBtn() {
- if (limit <= 5){
-  const btnSeemore = document.querySelectorAll('.btn-seemore');
-  for (let i = 0; i < btnSeemore.length; i++) {
-    btnSeemore[i].classList.remove('hidden');
+  if (limit <= 5) {
+    const btnSeemore = document.querySelectorAll('.btn-seemore');
+    for (let i = 0; i < btnSeemore.length; i++) {
+      btnSeemore[i].classList.remove('hidden');
+    }
   }
- }
 }
 
 function hideBtn() {
-  if (limit >= 5){
+  if (limit >= 5) {
     const btnSeemore = document.querySelectorAll('.btn-seemore');
-  for (let i = 0; i < btnSeemore.length; i++) {
-    btnSeemore[i].classList.add('hidden');
-  }
+    for (let i = 0; i < btnSeemore.length; i++) {
+      btnSeemore[i].classList.add('hidden');
+    }
   }
 }
 
-async function showMoreBooks(event) {
+async function showMoreBooks(event, categoryFromButton) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
@@ -142,13 +131,13 @@ async function showMoreBooks(event) {
     } else {
       return;
     }
-    const categoryFromButton = event.target.dataset.category; 
-    let moreBooks = await topBooks(categoryFromButton,limit);
+
+    let moreBooks = await topBooks(categoryFromButton, limit);
     moreBooks = moreBooks.map(el => {
       el.books = el.books.slice(0, limit);
       return el;
     });
-    renderBooksAll(moreBooks,categoryFromButton);
+    renderBooksAll(moreBooks);
     visibBtn();
   } catch (error) {
     showError('Sorry, no books! ', 'red', 'white');
@@ -159,11 +148,9 @@ booksContainerAll.addEventListener('click', async event => {
   if (event.target && event.target.classList.contains('btn-seemore')) {
     event.preventDefault();
     const categoryFromButton = event.target.dataset.category;
-    await showMoreBooks(event, categoryFromButton); 
+    await showMoreBooks(event, categoryFromButton);
   }
 });
-
-
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

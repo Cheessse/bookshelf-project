@@ -7,6 +7,11 @@ img {
   border-radius: 8px;
 }
 
+.books-container-all-cat-block {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   width: 375px;
   font-family: 'DM Sans';
@@ -42,7 +47,8 @@ img {
   margin-bottom: 40px;
 }
 
-.container-title span, .last-word{
+.container-title span,
+.last-word {
   color: #4f2ee8;
 }
 
@@ -67,6 +73,8 @@ img {
   border: 2px solid #4f2ee8;
   border-radius: 40px;
   background-color: transparent;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
 
 .hidden {
@@ -110,3 +118,11 @@ img {
   margin-top: 40px;
   margin-bottom: 40px;
 }
+
+
+/* ================================================================ */
+/* ========================MEDIA  768 PX ================================== */
+
+/* ================================================================ */
+/* ========================MEDIA  1440 PX ================================== */
+

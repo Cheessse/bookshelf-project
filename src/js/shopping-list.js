@@ -9,12 +9,13 @@ import {
   checkLocalStorage,
 } from './modal-window';
 
-import { SHOPPING_LIST_KEY } from './local-storage';
+import { localStorageAPI } from './local-storage';
 
 const placeholder = document.querySelector('.shopping-list-default-div');
 
 function renderBooksFromLS() {
-  const booksLS = JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) || [];
+  const booksLS =
+    JSON.parse(localStorage.getItem(localStorageAPI.SHOPPING_LIST_KEY)) || [];
 
   const booksList = document.querySelector('.shopping-list-render');
 
@@ -80,7 +81,8 @@ function renderBooksFromLS() {
 renderBooksFromLS();
 
 function removeFromShoppingList(bookId) {
-  const booksLS = JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) || [];
+  const booksLS =
+    JSON.parse(localStorage.getItem(localStorageAPI.SHOPPING_LIST_KEY)) || [];
 
   if (!booksLS || booksLS.length === 0) {
     return;

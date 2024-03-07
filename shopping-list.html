@@ -14,9 +14,9 @@
     
     <script type="module" crossorigin src="/project-team-6/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/project-team-6/assets/vendor-428a2275.js">
-    <link rel="modulepreload" crossorigin href="/project-team-6/assets/modal-window-5baad4a8.js">
+    <link rel="modulepreload" crossorigin href="/project-team-6/assets/modal-window-050bcce0.js">
     <link rel="stylesheet" href="/project-team-6/assets/vendor-2715ca0a.css">
-    <link rel="stylesheet" href="/project-team-6/assets/modal-window-e8ba0a83.css">
+    <link rel="stylesheet" href="/project-team-6/assets/modal-window-5c25ffe1.css">
   </head>
 
   <body>
@@ -61,11 +61,20 @@
                 </label>
             </div>
 
-            <button type="button" class="header-mob-menu-btn js-open-menu" >
+            <!-- <button type="button" class="header-mob-menu-btn js-open-menu" >
                 <svg width="28" height="28" class="header-menu-icon">
-                    <use href="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-burger"></use>
+                    <use href="./img/symbol-defs.svg#icon-burger"></use>
                 </svg>
-            </button>                    
+            </button> -->
+            <div class="header-mob-menu-btn js-open-menu" id="menuToggle">    
+                <svg class="header-menu-icon burger-icon" width="28" height="28">
+                  <use class="icon-burger" href="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-burger" ></use>
+                </svg>
+        
+                <svg class="header-menu-icon close-icon hidden" width="28" height="28">
+                  <use class="icon-close" href="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-x" ></use>
+                </svg>
+              </div> 
         </div>
     </div>           
 </header>

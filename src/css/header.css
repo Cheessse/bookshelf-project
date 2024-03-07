@@ -251,9 +251,7 @@ input:checked+.slider-black:before {
     stroke: #4F2EE8;
 }
 
-/* svg.header-menu-icon { 
-    stroke: #111111;
-} */
+
 
 .header-menu-icon {
     stroke: #111111;

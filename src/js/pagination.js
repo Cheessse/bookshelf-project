@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 
 function displayShoppingList(pageNumber, itemsPerPage) {
     if (!localStorage.getItem('shoppingList')) {
-        console.error('Einkaufsliste im lokalen Speicher nicht gefunden.');
+        console.error('Список покупок не знайдено в локальному сховищі.');
         return;
     }
     

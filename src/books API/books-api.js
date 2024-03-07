@@ -79,3 +79,35 @@ export async function topBooks(category, limit) {
   const res = await axios.get(url, options);
   return res.data;
 }
+
+// ==================================================
+
+// import axios from 'axios';
+// const BASE = 'https://books-backend.p.goit.global/books';
+
+// export async function getCategories() {
+//   const URL = `${BASE}/category-list`;
+//   const response = await axios.get(URL);
+//   return response.data;
+// }
+
+// export async function getPopularBooks() {
+//   const URL = `${BASE}/top-books`;
+//   const response = await axios.get(URL);
+//   return response.data;
+// }
+
+// export async function getBooksByCategory(selectedCategory) {
+//   selectedCategory = selectedCategory.trim();
+//   const params = { category: selectedCategory };
+//   const URL = `${BASE}/category`;
+//   const response = await axios.get(URL, { params });
+//   return response.data;
+// }
+
+// export async function getBookInfo(bookId) {
+//   bookId = bookId.trim();
+//   const URL = `${BASE}/${bookId}`;
+//   const response = await axios.get(URL);
+//   return response.data;
+// }

@@ -82,7 +82,6 @@ export async function loadBooks(selectedCategory) {
   try {
     const data = await booksByCategory(selectedCategory);
     renderBooks(data, selectedCategory);
-    handleBookClick();
   } catch (error) {
     showError('Sorry, there are no books for these category! ', 'red', 'white');
   }
@@ -110,7 +109,7 @@ export async function loadBooksAllCat(category) {
 }
 
 function visibBtn() {
-  if (limit === 1 || limit === 3) {
+  if (limit === 1 || limit === 3 || limit ===5) {
     showBtn();
   } else {
     hideBtn();
@@ -135,28 +134,17 @@ function hideBtn() {
   }
 }
 
-async function showMoreBooks(event, categoryFromButton) {
+async function showMoreBooks(selectedCategory) {
   try {
-    if (screenWidth >= 375 && screenWidth <= 767) {
-      limit = 1;
-      limit += 4;
-    } else if (screenWidth >= 768 && screenWidth <=1157) {
-      limit = 3;
-      limit += 2;
-    } else {
-      return;
-    }
-
-    let moreBooks = await topBooks(categoryFromButton, limit);
-    moreBooks = moreBooks.map(el => {
+    let moreBooksBycat = await loadBooks(selectedCategory);
+    moreBooks = moreBooksBycat.map(el => {
       el.books = el.books.slice(0, limit);
       return el;
     });
     renderBooksAll(moreBooks);
     visibBtn();
-    handleBookClick(event);
   } catch (error) {
-    showError('Sorry, no more books! ', 'red', 'white');
+    console.log(error);
   }
 }
 
@@ -164,7 +152,7 @@ booksContainerAll.addEventListener('click', async event => {
   if (event.target && event.target.classList.contains('btn-seemore')) {
     event.preventDefault();
     const categoryFromButton = event.target.dataset.category;
-    await showMoreBooks(event, categoryFromButton);
+    await showMoreBooks(categoryFromButton);
   }
 });
 

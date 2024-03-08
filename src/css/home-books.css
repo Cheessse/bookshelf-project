@@ -161,7 +161,7 @@ ul {
   .books-container-all-cat-block-bpt {
     display: flex;
     flex-direction: row;
-    width: calc((100% - 50px) / 3);
+    flex: calc((100% - 50px) / 3);
     gap: 0 25px;
   }
 
@@ -198,6 +198,13 @@ ul {
 
   .book-item:hover .hidden-overflow {
     transform: translateY(75%);
+  }
+  
+  .home-menu-support{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    width: 704px;
   }
   
 }
@@ -254,5 +261,20 @@ ul {
 
   .book-item:hover .hidden-overflow {
     transform: translateY(70%);
+  }
+
+  .home-menu-main-container{
+    display: flex;
+  }
+
+  .home-menu-support{
+    display: flex;
+    flex-direction: column;
+    gap: 86px;
+    width: 356px;
+  }
+
+  div#slider-container.slider-container{
+    height: 472px;
   }
 }

@@ -1,7 +1,13 @@
 const slider = document.querySelector('#slider');
-const themeStyle = document.querySelector('#theme-style');
+let themeStyle = document.querySelector('#theme-style');
 
 const savedTheme = localStorage.getItem('theme');
+
+if (!themeStyle) {
+  themeStyle = document.createElement('link');
+  themeStyle.id = 'theme-style';
+  document.head.appendChild(themeStyle);
+}
 
 // Встановлюємо тему за замовчуванням або збережену тему
 if (!savedTheme) {

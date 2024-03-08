@@ -2,8 +2,9 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import { booksByCategory, topBooks } from '../books API/books-api';
-// import { modalAboutBook } from './modal-window';
+import { modalAboutBook } from './modal-window';
 
+const containerBooks = document.querySelector('.container');
 const booksContainerOne = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector(
   '.books-container-all-cat-block'
@@ -16,7 +17,7 @@ const screenWidth = window.innerWidth;
 let limit;
 
 function templateBook(book) {
-  return `<div class="book-item">
+  return `<div class="book-item" data-category="${book._id}">
   <ul class="book-item-block">
     <li class="book-item-img">
       <img
@@ -34,6 +35,8 @@ function templateBook(book) {
   </ul>
 </div>`;
 }
+
+console.log(templateBook);
 
 function templateBooks(books) {
   return books.map(templateBook).join('');
@@ -92,11 +95,10 @@ export async function loadBooksAllCat(category) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-    } else if (screenWidth >= 768 && screenWidth <=1279) {
+    } else if (screenWidth >= 768 && screenWidth <=1157) {
       limit = 3;
     } else {
       limit = 5;
-      return;
     }
     let topBookList = await topBooks(category, limit);
     topBookList = topBookList.map(el => {
@@ -141,7 +143,7 @@ async function showMoreBooks(event, categoryFromButton) {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
       limit += 4;
-    } else if (screenWidth >= 768 && screenWidth <=1279) {
+    } else if (screenWidth >= 768 && screenWidth <=1157) {
       limit = 3;
       limit += 2;
     } else {
@@ -169,20 +171,16 @@ booksContainerAll.addEventListener('click', async event => {
   }
 });
 
-// const bookItems = document.querySelectorAll('.hidden-overflow');
-
-// bookItems.forEach(bookItem => {
-//   bookItem.addEventListener('click', handleBookClick);
-// });
-
-// async function handleBookClick(event) {
-//   event.preventDefault();
-//   const currentElem = event.target.closest('.book-item');
-//   if (currentElem) {
-//     const bookId = currentElem.dataset.bookId;
-//     modalAboutBook(bookId);
-//   }
-// }
+containerBooks.addEventListener('click', async event => {
+  if (event.target && event.target.classList.contains('hidden-overflow')) {
+    event.preventDefault();
+    const currentElem = event.target.closest('.book-item');
+    if (currentElem) {
+      const bookId = currentElem.dataset.bookId;
+      await modalAboutBook(bookId);
+    }
+  }
+});
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

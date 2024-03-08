@@ -53,7 +53,12 @@ function renderBooks(books, category) {
     }</h3>` +
     `<div class="books-container-one-cat-block">${templateBooks(books)}</div>`;
 
-  booksContainerOne.innerHTML = markup;
+  booksContainerOne.innerHTML =
+    markup +
+    `<a href="#anchor">
+  <button type="button" class="scroll-up hidden">UP</button>
+</a>
+`;
 }
 
 function renderBooksAll(categories) {
@@ -91,7 +96,7 @@ export async function loadBooksAllCat(category) {
   try {
     if (screenWidth >= 375 && screenWidth <= 767) {
       limit = 1;
-    } else if (screenWidth >= 768 && screenWidth <=1157) {
+    } else if (screenWidth >= 768 && screenWidth <= 1157) {
       limit = 3;
     } else {
       limit = 5;
@@ -109,7 +114,7 @@ export async function loadBooksAllCat(category) {
 }
 
 function visibBtn() {
-  if (limit === 1 || limit === 3 || limit ===5) {
+  if (limit === 1 || limit === 3 || limit === 5) {
     showBtn();
   } else {
     hideBtn();
@@ -195,3 +200,20 @@ function showError(text, bgColor, txtColor) {
     closeOnClick: true,
   });
 }
+
+// ==============////////SCROLL//////////===============
+
+const anchor = document.getElementById('anchor');
+
+window.addEventListener('scroll', () => {
+  const scrollButtons = document.querySelectorAll('.scroll-up');
+  const anchorPosition = anchor.getBoundingClientRect().top;
+  scrollButtons.forEach(button => {
+    const buttonPosition = button.getBoundingClientRect().bottom;
+    if (Math.floor(anchorPosition) === Math.floor(buttonPosition)) {
+      button.classList.add('hidden');
+    } else {
+      button.classList.remove('hidden');
+    }
+  });
+});

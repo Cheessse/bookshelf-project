@@ -1,111 +1,111 @@
 /** MOBILE CSS */
 .slider-container {
-    margin-bottom: 40px;
-    overflow-y: auto;
+  margin-bottom: 40px;
+  overflow-y: auto;
 }
 
 .slider-container ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .slider-container ul p {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .slider-container ul p:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 #category-list {
-    width: 307px;
-    height: 228px;
-    overflow-y: auto;
-    margin-top: 20px;
+  width: 307px;
+  height: 228px;
+  overflow-y: auto;
+  margin-top: 20px;
 }
 
 #category-list::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 #category-list::-webkit-scrollbar-thumb {
-    background: #e0e0e0;
-    border-radius: 12px;
-    height: 114px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  height: 114px;
 }
 
 #title {
-    cursor: pointer;
-    margin-bottom: 24px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: #800080;
+  cursor: pointer;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--all-categories-title-and-hover);
 }
 
 #category-list p {
-    cursor: pointer;
-    margin-bottom: 24px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
-    color: rgba(17, 17, 17, 0.6);
+  cursor: pointer;
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
 }
 
 #category-list p:hover {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 133%;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: #4f2ee8;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #4f2ee8;
 }
 
-#category-list p:hover~#title {
-    font-weight: 400;
-    /* Изменение при наведении на #category-list p:hover */
+#category-list p:hover ~ #title {
+  font-weight: 400;
+  /* Изменение при наведении на #category-list p:hover */
 }
 
 #p-list {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {
-    .slider-container {
-        overflow-y: auto;
-        height: 100%;
-    }
+  .slider-container {
+    overflow-y: auto;
+    height: 100%;
+  }
 
-    #category-list {
-        width: 309px;
-        height: 472px;
-    }
+  #category-list {
+    width: 309px;
+    height: 472px;
+  }
 
-    #category-list::-webkit-scrollbar-thumb {
-        height: 167px;
-        /* Высота ползунка */
-    }
+  #category-list::-webkit-scrollbar-thumb {
+    height: 167px;
+    /* Высота ползунка */
+  }
 
-    #title {
-        margin-bottom: 32px;
-        font-size: 18px;
-        line-height: 133%;
-    }
+  #title {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 133%;
+  }
 
-    #category-list p {
-        margin-bottom: 32px;
-        font-size: 18px;
-        line-height: 133%;
-    }
+  #category-list p {
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 133%;
+  }
 }
 
 /**=====  FULL-SCR ===================================================================================  */
 @media screen and (min-width: 1440px) {
-    #category-list {
-        width: 328px;
-    }
+  #category-list {
+    width: 328px;
+  }
 }

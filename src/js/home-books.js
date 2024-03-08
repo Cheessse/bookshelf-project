@@ -4,7 +4,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 import { booksByCategory, topBooks } from '../books API/books-api';
 import { modalAboutBook } from './modal-window';
 
-const containerBooks = document.querySelector('.container');
 const booksContainerOne = document.querySelector('.books-container-one-cat');
 const booksContainerAll = document.querySelector(
   '.books-container-all-cat-block'
@@ -17,8 +16,8 @@ const screenWidth = window.innerWidth;
 let limit;
 
 function templateBook(book) {
-  return `<div class="book-item" data-category="${book._id}">
-  <ul class="book-item-block">
+  return `<div class="book-item">
+  <ul class="book-item-block" data-category="${book._id}">
     <li class="book-item-img">
       <img
         src="${book.book_image}"
@@ -35,8 +34,6 @@ function templateBook(book) {
   </ul>
 </div>`;
 }
-
-console.log(templateBook);
 
 function templateBooks(books) {
   return books.map(templateBook).join('');
@@ -159,7 +156,7 @@ async function showMoreBooks(event, categoryFromButton) {
     visibBtn();
     handleBookClick(event);
   } catch (error) {
-    showError('Sorry, no books! ', 'red', 'white');
+    showError('Sorry, no more books! ', 'red', 'white');
   }
 }
 
@@ -171,13 +168,26 @@ booksContainerAll.addEventListener('click', async event => {
   }
 });
 
-containerBooks.addEventListener('click', async event => {
-  if (event.target && event.target.classList.contains('hidden-overflow')) {
+booksContainerAll.addEventListener('click', async event => {
+  if (event.target.classList.contains('book-item')) {
     event.preventDefault();
-    const currentElem = event.target.closest('.book-item');
-    if (currentElem) {
-      const bookId = currentElem.dataset.bookId;
-      await modalAboutBook(bookId);
+    const currentElem = event.target.closest('.book-item-block');
+    const bookId = currentElem.dataset.category;
+    if (bookId) {
+      const result = await modalAboutBook(bookId);
+      console.log(result);
+    }
+  }
+});
+
+booksContainerOne.addEventListener('click', async event => {
+  if (event.target.classList.contains('book-item')) {
+    event.preventDefault();
+    const currentElem = event.target.closest('.book-item-block');
+    const bookId = currentElem.dataset.category;
+    if (bookId) {
+      const result = await modalAboutBook(bookId);
+      console.log(result);
     }
   }
 });

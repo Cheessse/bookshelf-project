@@ -207,14 +207,15 @@ function showError(text, bgColor, txtColor) {
 
 // ==============////////SCROLL//////////===============
 
+
 const anchor = document.getElementById('anchor');
 
 window.addEventListener('scroll', () => {
   const scrollButtons = document.querySelectorAll('.scroll-up');
   const anchorPosition = anchor.getBoundingClientRect().top;
   scrollButtons.forEach(button => {
-    const buttonPosition = button.getBoundingClientRect().bottom;
-    if (Math.floor(anchorPosition) === Math.floor(buttonPosition)) {
+    const buttonPosition = button.getBoundingClientRect().top;
+    if (Math.abs(anchorPosition - buttonPosition) <= 700) {
       button.classList.add('hidden');
     } else {
       button.classList.remove('hidden');

@@ -1,5 +1,6 @@
 .support {
     z-index: 14;
+    margin: 0 20px 40px 20px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;

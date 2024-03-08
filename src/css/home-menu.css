@@ -1,5 +1,6 @@
-/** MOBILE CSS */
 .slider-container {
+    margin-right: 20px;
+    margin-left: 20px;
     margin-bottom: 40px;
     overflow-y: auto;
 }
@@ -42,7 +43,7 @@
     line-height: 112%;
     letter-spacing: -0.02em;
     text-transform: uppercase;
-    color: #800080;
+    color: #4f2ee8;
 }
 
 #category-list p {
@@ -72,6 +73,7 @@
 #p-list {
     margin-right: 20px;
 }
+
 
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {

@@ -4,4 +4,9 @@
   --yellow: #eac645;
   --violet: #4f2ee8;
   --font-color: #111;
+  --all-categories-title-and-hover: #4f2ee8;
+}
+
+body {
+  background: var(--body-color);
 }

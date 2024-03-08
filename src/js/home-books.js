@@ -161,6 +161,8 @@ booksContainerAll.addEventListener('click', async event => {
   }
 });
 
+// ==============////////MODAL LISTENERS//////////===============
+
 booksContainerAll.addEventListener('click', async event => {
   if (event.target.classList.contains('book-item')) {
     event.preventDefault();
@@ -184,6 +186,8 @@ booksContainerOne.addEventListener('click', async event => {
     }
   }
 });
+
+// ==============////////IZI//////////===============
 
 function showError(text, bgColor, txtColor) {
   iziToast.error({

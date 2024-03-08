@@ -4,10 +4,12 @@ const themeStyle = document.querySelector('#theme-style');
 const savedTheme = localStorage.getItem('theme');
 
 // Встановлюємо тему за замовчуванням або збережену тему
-if (savedTheme) {
-  themeStyle.setAttribute('href', `./css/${savedTheme}.css`);
-} else {
+if (!savedTheme || null) {
   themeStyle.setAttribute('href', `./css/styles-light-theme.css`);
+  // themeStyle.setAttribute('href', `./css/${savedTheme}.css`);
+} else {
+  themeStyle.setAttribute('href', `./css/${savedTheme}.css`);
+  // themeStyle.setAttribute('href', `./css/styles-light-theme.css`);
 }
 
 function setTheme(themeName) {

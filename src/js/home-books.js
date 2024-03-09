@@ -176,8 +176,8 @@ booksContainerAll.addEventListener('click', async event => {
 });
 
 booksContainerOne.addEventListener('click', async event => {
-  if (event.target.classList.contains('book-item')) {
-    event.preventDefault();
+  event.preventDefault();
+  if (event.target.closest('.book-item')) {
     const currentElem = event.target.closest('.book-item-block');
     const bookId = currentElem.dataset.category;
     if (bookId) {

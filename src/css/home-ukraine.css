@@ -1,139 +1,142 @@
 .support {
-    z-index: 14;
-    margin: 0 20px 40px 20px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 24px 40px 20px;
-    width: 335px;
-    border-radius: 16px;
-    max-height: 460px;
-    box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
-    background: radial-gradient(189.32% 190.93% at 59.76% -23.42%, rgb(79, 46, 232) 18.02733987569809%, rgb(255, 255, 255) 100%);
+  z-index: 14;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 40px 20px;
+  width: 335px;
+  border-radius: 16px;
+  max-height: 460px;
+  box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
 }
 
 .support-title {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: left;
-    /*i cant see the margin-left size*/
-    margin-bottom: 40px;
-    width: 193px;
-    height: 32px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: left;
+  /*i cant see the margin-left size*/
+  margin-bottom: 40px;
+  width: 193px;
+  height: 32px;
 }
 
 .support-header {
-    align-items: center;
-    font-family: "DM Sans", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: -0.04em;
-    color: #fff;
+  align-items: center;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #fff;
 }
 
 .support-icon {
-    fill: #fff;
+  fill: #fff;
 }
 
 /*Support items list*/
 
 .support-item {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .support-number {
-    font-family: "DM Sans", sans-serif;
-    display: inline-block;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: -0.04em;
-    color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
 
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 .support-img {
-    filter: brightness(0) invert(1);
-    display: inline-block;
-    vertical-align: middle;
-    height: 32px;
-    max-width: 193px;
+  filter: brightness(0) invert(1);
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+  max-width: 193px;
 }
 
 /*Button*/
 .support-btn {
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 32px;
-    width: 32px;
-    border: none;
-    border-radius: 50px;
-    background-color: #fff;
-    transform: rotateX(0);
-    transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  width: 32px;
+  border: none;
+  border-radius: 50px;
+  background-color: #fff;
+  transform: rotateX(0);
+  transition: transform 0.5s ease-in-out;
 
-    & span {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-    }
+  & span {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
 }
 
 .support-btn.hidden {
-    display: none;
+  display: none;
 }
 
 .support-btn-up {
-    transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 .support-btn-icon {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
 }
 
 .swiper {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 @media screen and (min-width: 768px) {
-    .support {
-        max-height: 474px;
-        padding-bottom: 14px;
-    }
+  .support {
+    max-height: 474px;
+    padding-bottom: 14px;
+  }
 
-    .swiper {
-        margin-bottom: 32px;
-    }
+  .swiper {
+    margin-bottom: 32px;
+  }
 
-    .support-btn {
-        min-height: 38px;
-        width: 38px;
-    }
+  .support-btn {
+    min-height: 38px;
+    width: 38px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    .support {
-        width: 356px;
-        max-height: 490px;
-        padding-bottom: 24px;
-    }
-    .swiper {
-        margin-bottom: 40;
-    }
+  .support {
+    width: 356px;
+    max-height: 490px;
+    padding-bottom: 24px;
+  }
+  .swiper {
+    margin-bottom: 40;
+  }
 
-    .support-btn {
-        min-height: 38px;
-        width: 38px;
-    }
+  .support-btn {
+    min-height: 38px;
+    width: 38px;
+  }
 }

@@ -1,31 +1,31 @@
-import{l as i}from"./assets/dark-theme-a2873107.js";import"./assets/vendor-59c8246b.js";const c="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",d="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",p="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",a=document.querySelector(".shopping-list-default-div");function u(){const s=JSON.parse(localStorage.getItem(i.SHOPPING_LIST_KEY))||[],o=document.querySelector(".shopping-list-render");if(s.length===0)a.style.display="block";else{a.style.display="none";const t=s.map(e=>`
+import"./assets/dark-theme-772958a9.js";import"./assets/vendor-59c8246b.js";const p="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",u="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",g="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",i="list";function h(e){const s=r();s.push(e),localStorage.setItem(i,JSON.stringify(s))}function r(){return JSON.parse(localStorage.getItem(i))||[]}const n={SHOPPING_LIST_KEY:i,addToShoppingList:h,getAllBooks:r},a=document.querySelector(".shopping-list-default-div");function m(){const e=JSON.parse(localStorage.getItem(n.SHOPPING_LIST_KEY))||[],s=document.querySelector(".shopping-list-render");if(e.length===0)a.style.display="block";else{a.style.display="none";const o=e.map(t=>`
        <div class="card">
-        <img src="${e.book_image}" alt="book cover" class="book-cover" >
+        <img src="${t.book_image}" alt="book cover" class="book-cover" >
         <div class="about">
-          <h2 class="book-title">${e.title}</h2>
-          <p class="book-category">${e.list_name}</p>
-          <p class="book-description">${e.description}</p>
-          <p class="book-author">${e.author}</p>
+          <h2 class="book-title">${t.title}</h2>
+          <p class="book-category">${t.list_name}</p>
+          <p class="book-description">${t.description}</p>
+          <p class="book-author">${t.author}</p>
         </div>
            <div class="buy">
-        <a href="${e.buy_links[0].url}" target="_blank">
+        <a href="${t.buy_links[0].url}" target="_blank">
           <svg class="amazon" width="16" height="16">
-            <use href="${c}"></use>
+            <use href="${p}"></use>
           </svg>
         </a>
-        <a href="${e.buy_links[1].url}" target="_blank">
+        <a href="${t.buy_links[1].url}" target="_blank">
           <svg class="ibook" width="16" height="16">
-            <use href="${d}"></use>
+            <use href="${u}"></use>
           </svg>
         </a>
       </div>
-      <button data-book-id="${e._id}" class="delete-btn">
+      <button data-book-id="${t._id}" class="delete-btn">
         <div class="icon-trash">
           <svg class="trash" width="16" height="16">
-            <use href="${p}"></use>
+            <use href="${g}"></use>
           </svg>
         </div>
       </button>
        </div>
-  `).join("");o.insertAdjacentHTML("beforeend",t)}document.querySelectorAll(".delete-btn").forEach(t=>{t.addEventListener("click",()=>{const e=t.getAttribute("data-book-id");g(e);const n=t.closest(".card");n&&n.remove(),r()})})}u();function g(s){const o=JSON.parse(localStorage.getItem(i.SHOPPING_LIST_KEY))||[];if(!o||o.length===0)return;const l=o.filter(t=>t._id!==s);console.log(l),toLocalStorage(i.SHOPPING_LIST_KEY,l)}function h(){return document.querySelector(".shopping-list-render").children.length===0}function r(){const s=document.querySelector(".support-ukraine");h()?(a.style.display="block",s.style.display="none"):(a.style.display="none",s.style.display="block")}r();
+  `).join("");s.insertAdjacentHTML("beforeend",o)}document.querySelectorAll(".delete-btn").forEach(o=>{o.addEventListener("click",()=>{const t=o.getAttribute("data-book-id");S(t);const c=o.closest(".card");c&&c.remove(),d()})})}m();function S(e){const s=JSON.parse(localStorage.getItem(n.SHOPPING_LIST_KEY))||[];if(!s||s.length===0)return;const l=s.filter(o=>o._id!==e);console.log(l),toLocalStorage(n.SHOPPING_LIST_KEY,l)}function b(){return document.querySelector(".shopping-list-render").children.length===0}function d(){const e=document.querySelector(".support-ukraine");b()?(a.style.display="block",e.style.display="none"):(a.style.display="none",e.style.display="block")}d();
 //# sourceMappingURL=commonHelpers2.js.map

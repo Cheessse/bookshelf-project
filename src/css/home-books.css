@@ -45,6 +45,7 @@ ul {
   letter-spacing: -4%;
   margin-top: 40px;
   margin-bottom: 40px;
+  color: var(--font-color);
 }
 
 .container-title span,
@@ -80,6 +81,7 @@ ul {
   align-self: flex-end;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--font-color);
 }
 
 .btn-seemore:hover,
@@ -132,6 +134,7 @@ ul {
   line-height: 1.13;
   letter-spacing: -4%;
   text-transform: uppercase;
+  color: var(--font-color);
 }
 
 .book-item-author {

@@ -246,7 +246,7 @@ ul {
   .home-menu-support {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    justify-content: space-between;
     width: 704px;
   }
 

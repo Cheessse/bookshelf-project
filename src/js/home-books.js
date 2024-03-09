@@ -164,7 +164,7 @@ booksContainerAll.addEventListener('click', async event => {
 // ==============////////MODAL LISTENERS//////////===============
 
 booksContainerAll.addEventListener('click', async event => {
-  if (event.target.classList.contains('book-item')) {
+  if (event.target.closest('.book-item')) {
     event.preventDefault();
     const currentElem = event.target.closest('.book-item-block');
     const bookId = currentElem.dataset.category;
@@ -212,8 +212,8 @@ const anchor = document.getElementById('anchor');
 window.addEventListener('scroll', () => {
   const scrollButtons = document.querySelectorAll('.scroll-up');
   const anchorPosition = anchor.getBoundingClientRect().top;
+  const buttonPosition = button.getBoundingClientRect().top;
   scrollButtons.forEach(button => {
-    const buttonPosition = button.getBoundingClientRect().top;
     if (screenWidth >= 375 && screenWidth <= 767) {
       if (Math.abs(anchorPosition - buttonPosition) <= 700) {
         button.classList.add('hidden');

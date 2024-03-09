@@ -1,7 +1,7 @@
 /** MOBILE CSS */
 .slider-container {
   margin-bottom: 50px;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .slider-container ul {
@@ -52,7 +52,7 @@
   font-size: 16px;
   line-height: 112%;
   letter-spacing: -0.02em;
-  color: rgba(17, 17, 17, 0.6);
+  color: var(--all-categories-list-text);
 }
 
 #category-list p:hover {
@@ -76,7 +76,7 @@
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {
   .slider-container {
-    overflow-y: auto;
+    overflow-y: hidden;
     height: 100%;
   }
 

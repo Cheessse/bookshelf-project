@@ -1,5 +1,5 @@
 .shopping-list-main {
-  background-color: #f6f6f6;
+  background-color: var(--body-color);
   max-width: 375px;
   padding-left: 20px;
   padding-right: 20px;
@@ -15,7 +15,7 @@
   font-size: 32px;
   line-height: 1.1875;
   letter-spacing: -0.04em;
-  color: #111;
+  color: var(--font-color);
   margin-bottom: 64px;
 }
 
@@ -29,7 +29,7 @@
   line-height: 1.28571;
   letter-spacing: -0.02em;
   text-align: center;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--shopping-list-default-text);
 }
 .sidebar {
   display: none;
@@ -52,7 +52,7 @@
   line-height: 1.125;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: #111;
+  color: var(--font-color);
   margin-top: 0;
 }
 
@@ -68,7 +68,7 @@
   font-size: 14px;
   line-height: 1.28571;
   letter-spacing: -0.04em;
-  color: #111;
+  color: var(--font-color);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -148,7 +148,7 @@
     font-size: 48px;
     line-height: 1.08333;
     letter-spacing: -0.04em;
-    color: #111;
+    color: var(--font-color);
   }
   .shopping-list-default-text {
     font-size: 18px;

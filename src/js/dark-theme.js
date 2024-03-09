@@ -27,6 +27,14 @@ function updateCssVariables(theme) {
     '--all-categories-title-and-hover',
     theme.allCategoriesTitleAndHover
   );
+  root.style.setProperty(
+    '--all-categories-list-text',
+    theme.allCategoriesListText
+  );
+  root.style.setProperty(
+    '--shopping-list-default-text',
+    theme.shoppingListDefaultText
+  );
 }
 
 function toggleTheme() {
@@ -50,6 +58,8 @@ const lightTheme = {
   headerBorderColor: '#111',
   modalBodyColor: '#fff',
   allCategoriesTitleAndHover: '#4f2ee8',
+  allCategoriesListText: 'rgba(17, 17, 17, 0.6)',
+  shoppingListDefaultText: 'rgba(0, 0, 0, 0.6)',
 };
 
 const darkTheme = {
@@ -61,6 +71,8 @@ const darkTheme = {
   headerBorderColor: '#fff',
   modalBodyColor: '#202024',
   allCategoriesTitleAndHover: '#eac645',
+  allCategoriesListText: 'rgba(255, 255, 255, 0.6)',
+  shoppingListDefaultText: 'rgba(255, 255, 255, 0.6)',
 };
 
 function checkTheme() {

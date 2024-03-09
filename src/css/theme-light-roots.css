@@ -7,6 +7,8 @@
   --header-border-color: #111;
   --modal-body-color: #fff;
   --all-categories-title-and-hover: #4f2ee8;
+  --all-categories-list-text: rgba(17, 17, 17, 0.6);
+  --shopping-list-default-text: rgba(0, 0, 0, 0.6);
 }
 
 body {

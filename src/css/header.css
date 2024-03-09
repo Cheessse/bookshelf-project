@@ -444,6 +444,7 @@ input:checked + .slider-black:before {
     letter-spacing: -0.04em;
     text-transform: uppercase;
     color: #111;
+    fill: var(--font-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -455,6 +456,13 @@ input:checked + .slider-black:before {
     height: 20px;
   }
 
+  .nav-item {
+    color: var(--font-color);
+  }
+
+  .icon-Bookshelf {
+    fill: var(--font-color);
+  }
   /* button.header-mob-menu-btn.js-open-menu {    
     display:none;
 } */

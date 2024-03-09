@@ -1,7 +1,14 @@
 /** MOBILE CSS */
 .slider-container {
+<<<<<<< Updated upstream
   margin-bottom: 50px;
   overflow-y: auto;
+=======
+  width: 335px;
+  height: 228px;
+  margin-bottom: 40px;
+  overflow-y: hidden;
+>>>>>>> Stashed changes
 }
 
 .slider-container ul {
@@ -13,9 +20,9 @@
   cursor: pointer;
 }
 
-.slider-container ul p:hover {
+/* .slider-container ul p:hover {
   background-color: #f0f0f0;
-}
+} */
 
 #category-list {
   width: 307px;
@@ -64,10 +71,7 @@
   color: #4f2ee8;
 }
 
-#category-list p:hover ~ #title {
-  font-weight: 400;
-  /* Изменение при наведении на #category-list p:hover */
-}
+
 
 #p-list {
   margin-right: 20px;
@@ -76,7 +80,13 @@
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {
   .slider-container {
+<<<<<<< Updated upstream
     overflow-y: auto;
+=======
+    width: 337px;
+    height: 472px;
+    overflow-y: hidden;
+>>>>>>> Stashed changes
     height: 100%;
   }
 

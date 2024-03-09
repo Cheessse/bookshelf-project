@@ -71,13 +71,13 @@ export function removeBook(id) {
 export function checkLocalStorage(book) {
   let permanentLS = localStorageAPI.getItem(`idBooks`);
 
-  if (!permanentLS || permanentLS === '' || !permanentLS.includes(book.id)) {
+  if (!permanentLS || permanentLS === '' || !permanentLS.includes(book._id)) {
     btn.textContent = 'Add to shopping list';
   } else {
     btn.textContent = 'Remove from the shopping list';
     addMessage.hidden = false;
   }
-  btn.attributes.id.value = book.id;
+  btn.attributes.id.value = book._id;
 }
 export function updateShoppingList() {
   try {

@@ -61,7 +61,7 @@
   line-height: 133%;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: #4f2ee8;
+  color: var(--all-categories-title-and-hover);
 }
 
 #category-list p:hover ~ #title {

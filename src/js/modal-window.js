@@ -16,7 +16,7 @@ addMessage.hidden = true;
 btn.addEventListener('click', addOrRemoveBook);
 export async function booksId(id) {
   const BASE_URL = 'https://books-backend.p.goit.global/books/';
-  const bookId= `${id}`;
+  const bookId = `${id}`;
   const url = `${BASE_URL}${bookId}`;
   const options = {
     method: 'GET',
@@ -24,7 +24,7 @@ export async function booksId(id) {
       'Content-Type': 'application/json',
     },
   };
-  const res = await axios.get(url,options);
+  const res = await axios.get(url, options);
   return res.data;
 }
 console.log(booksId('643282b1e85766588626a0dc'));

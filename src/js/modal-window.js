@@ -62,7 +62,7 @@ function addBook(id) {
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
   addMessage.hidden = false;
-  updateShoppingList();
+
 }
 
 function removeBook(id) {
@@ -72,7 +72,7 @@ function removeBook(id) {
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Add to shopping list';
   addMessage.hidden = true;
-  updateShoppingList();
+ 
 }
 
 function checkLocalStorage(book) {

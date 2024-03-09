@@ -87,11 +87,3 @@ function checkLocalStorage(book) {
   btn.attributes.id.value = book._id;
 }
 
-function updateShoppingList() {
-  try {
-    const shoppingList = localStorage.getItem('idBooks');
-    localStorage.setItem('idBooks', JSON.stringify(shoppingList));
-  } catch (error) {
-    console.error('Error updating shopping list:', error.message);
-  }
-}

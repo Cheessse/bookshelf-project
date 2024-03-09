@@ -207,7 +207,6 @@ function showError(text, bgColor, txtColor) {
 
 // ==============////////SCROLL//////////===============
 
-
 const anchor = document.getElementById('anchor');
 
 window.addEventListener('scroll', () => {
@@ -215,10 +214,20 @@ window.addEventListener('scroll', () => {
   const anchorPosition = anchor.getBoundingClientRect().top;
   scrollButtons.forEach(button => {
     const buttonPosition = button.getBoundingClientRect().top;
-    if (Math.abs(anchorPosition - buttonPosition) <= 700) {
-      button.classList.add('hidden');
+    if (screenWidth >= 375 && screenWidth <= 767) {
+      if (Math.abs(anchorPosition - buttonPosition) <= 700) {
+        button.classList.add('hidden');
+      } else {
+        button.classList.remove('hidden');
+      }
+    } else if (screenWidth >= 768 && screenWidth <= 1157) {
+      if (Math.abs(anchorPosition - buttonPosition) <= 900) {
+        button.classList.add('hidden');
+      } else {
+        button.classList.remove('hidden');
+      }
     } else {
-      button.classList.remove('hidden');
+      button.classList.add('hidden');
     }
   });
 });

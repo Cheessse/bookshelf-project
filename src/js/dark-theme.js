@@ -12,14 +12,11 @@ if (!themeStyle) {
 
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
-  themeStyle.setAttribute('href', `./css/${themeName}.css`);
 }
 
 function updateCssVariables(theme) {
   root.style.setProperty('--header-color', theme.headerColor);
   root.style.setProperty('--body-color', theme.bodyColor);
-  root.style.setProperty('--yellow', theme.yellow);
-  root.style.setProperty('--violet', theme.violet);
   root.style.setProperty('--font-color', theme.fontColor);
   root.style.setProperty('--header-border-color', theme.headerBorderColor);
   root.style.setProperty('--modal-body-color', theme.modalBodyColor);
@@ -52,8 +49,6 @@ slider.addEventListener('change', toggleTheme);
 const lightTheme = {
   headerColor: '#fff',
   bodyColor: '#f6f6f6',
-  yellow: '#eac645',
-  violet: '#4f2ee8',
   fontColor: '#111',
   headerBorderColor: '#111',
   modalBodyColor: '#fff',
@@ -65,8 +60,6 @@ const lightTheme = {
 const darkTheme = {
   headerColor: '#111',
   bodyColor: '#202024',
-  yellow: '#eac645',
-  violet: '#4f2ee8',
   fontColor: '#ffffff',
   headerBorderColor: '#fff',
   modalBodyColor: '#202024',

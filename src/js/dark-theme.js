@@ -59,7 +59,7 @@ if (!themeStyle) {
 
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
-  // themeStyle.setAttribute('href', `./css/${themeName}.css`);
+  themeStyle.setAttribute('href', `./css/${themeName}.css`);
 }
 
 function updateCssVariables(theme) {

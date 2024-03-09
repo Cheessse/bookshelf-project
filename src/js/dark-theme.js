@@ -59,7 +59,7 @@ if (!themeStyle) {
 
 function setTheme(themeName) {
   localStorage.setItem('theme', themeName);
-  themeStyle.setAttribute('href', `./css/${themeName}.css`);
+  // themeStyle.setAttribute('href', `./css/${themeName}.css`);
 }
 
 function updateCssVariables(theme) {
@@ -68,6 +68,8 @@ function updateCssVariables(theme) {
   root.style.setProperty('--yellow', theme.yellow);
   root.style.setProperty('--violet', theme.violet);
   root.style.setProperty('--font-color', theme.fontColor);
+  root.style.setProperty('--header-border-color', theme.headerBorderColor);
+  root.style.setProperty('--modal-body-color', theme.modalBodyColor);
   root.style.setProperty(
     '--all-categories-title-and-hover',
     theme.allCategoriesTitleAndHover
@@ -92,6 +94,8 @@ const lightTheme = {
   yellow: '#eac645',
   violet: '#4f2ee8',
   fontColor: '#111',
+  headerBorderColor: '#111',
+  modalBodyColor: '#fff',
   allCategoriesTitleAndHover: '#4f2ee8',
 };
 
@@ -101,6 +105,8 @@ const darkTheme = {
   yellow: '#eac645',
   violet: '#4f2ee8',
   fontColor: '#ffffff',
+  headerBorderColor: '#fff',
+  modalBodyColor: '#202024',
   allCategoriesTitleAndHover: '#eac645',
 };
 

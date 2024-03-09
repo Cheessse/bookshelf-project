@@ -89,6 +89,10 @@
   align-items: center;
 }
 
+.icon-amazon {
+  fill: var(--font-color);
+}
+
 .popup-shopping-links-icon {
   filter: grayscale(100%);
 

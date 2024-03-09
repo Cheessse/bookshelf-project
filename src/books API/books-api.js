@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const BASE = 'https://books-backend.p.goit.global/books';
+
 export async function categoryList() {
   const URL = 'https://books-backend.p.goit.global/books/category-list';
 
@@ -11,15 +13,22 @@ export async function categoryList() {
   return res.data;
 }
 
-export async function booksId() {
-  const URL = 'https://books-backend.p.goit.global/books/{id}';
+// export async function booksId() {
+//   const URL = 'https://books-backend.p.goit.global/books/{id}';
 
-  const options = {
-    method: 'GET',
-  };
+//   const options = {
+//     method: 'GET',
+//   };
 
-  const res = await axios.get(URL, { options });
-  return res.data;
+//   const res = await axios.get(URL, { options });
+//   return res.data;
+// }
+
+export async function booksId(bookId) {
+  bookId = bookId.trim();
+  const URL = `${BASE}/${bookId}`;
+  const response = await axios.get(URL);
+  return response.data;
 }
 
 export async function booksByCategory(selectedCategory) {
@@ -57,9 +66,6 @@ export async function topBooks(category, limit) {
 
 // ==================================================
 
-// import axios from 'axios';
-// const BASE = 'https://books-backend.p.goit.global/books';
-
 // export async function getCategories() {
 //   const URL = `${BASE}/category-list`;
 //   const response = await axios.get(URL);
@@ -77,12 +83,5 @@ export async function topBooks(category, limit) {
 //   const params = { category: selectedCategory };
 //   const URL = `${BASE}/category`;
 //   const response = await axios.get(URL, { params });
-//   return response.data;
-// }
-
-// export async function getBookInfo(bookId) {
-//   bookId = bookId.trim();
-//   const URL = `${BASE}/${bookId}`;
-//   const response = await axios.get(URL);
 //   return response.data;
 // }

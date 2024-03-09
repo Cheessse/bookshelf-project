@@ -85,7 +85,11 @@ ul {
 }
 
 .btn-seemore:hover,
-.btn-seemore:focus {
+.btn-seemore:focus,
+.scroll-up:hover,
+.scroll-up:focus,
+.back-to-all-cat:hover,
+.back-to-all-cat:focus {
   background-color: #4f2ee8;
   color: #fff;
 }
@@ -97,21 +101,33 @@ ul {
   line-height: 1.29;
   letter-spacing: -1%;
   padding: 14px 28px;
-  border: 2px solid #eac645;
+  border: 2px solid #2ee888;
   border-radius: 40px;
-  background-color: #d0f02e;
+  background-color: transparent;
   justify-self: flex-end;
   align-self: flex-end;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   position: fixed;
-  top: 200px;
+  bottom: 100px;
   right: 80px;
   z-index: 1;
 }
 
-.scroll-up:hover,
-.scroll-up:focus {
-  background-color: #88c31a;
+.back-to-all-cat {
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -1%;
+  padding: 14px 28px;
+  border: 2px solid #4f2ee8;
+  border-radius: 40px;
+  background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--font-color);
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .hidden {
@@ -318,9 +334,10 @@ ul {
   }
 
   .home-menu-support {
+    justify-content: unset;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 86px;
     width: 356px;
   }
 

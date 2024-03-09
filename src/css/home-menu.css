@@ -1,6 +1,8 @@
 /** MOBILE CSS */
 .slider-container {
-  margin-bottom: 50px;
+  width: 335px;
+  height: 228px;
+  margin-bottom: 40px;
   overflow-y: hidden;
 }
 
@@ -13,9 +15,6 @@
   cursor: pointer;
 }
 
-.slider-container ul p:hover {
-  background-color: #f0f0f0;
-}
 
 #category-list {
   width: 307px;
@@ -48,6 +47,7 @@
 #category-list p {
   cursor: pointer;
   margin-bottom: 24px;
+  margin-right: 20px;
   font-weight: 400;
   font-size: 16px;
   line-height: 112%;
@@ -64,20 +64,14 @@
   color: var(--all-categories-title-and-hover);
 }
 
-#category-list p:hover ~ #title {
-  font-weight: 400;
-  /* Изменение при наведении на #category-list p:hover */
-}
 
-#p-list {
-  margin-right: 20px;
-}
 
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {
   .slider-container {
+    width: 337px;
+    height: 472px;
     overflow-y: hidden;
-    height: 100%;
   }
 
   #category-list {

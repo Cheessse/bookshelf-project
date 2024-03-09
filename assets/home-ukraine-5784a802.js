@@ -6,4 +6,4 @@ import{a as u,i as G,S as v}from"./vendor-59c8246b.js";(function(){const e=docum
                 <img src = "${t.img}" class="support-img" srcset="${t.img} 1x, ${t.img2x} 2x" alt = "${t.title} logo"/>
                 </a>
             </div>`).join("");r.list.innerHTML=te;k();addEventListener("resize",k);function oe(){l.slideNext(),(l.isBeginning||l.isEnd)&&se()}function k(){const t=r.btn.classList.contains("hidden");w.length>l.params.slidesPerGroup?(t&&r.btn.classList.remove("hidden"),r.nextBtn.addEventListener("click",oe)):t||r.btn.classList.add("hidden")}function se(){r.btn.classList.toggle("support-btn-up")}export{ae as b,ie as c,c as l,ce as m,re as t};
-//# sourceMappingURL=home-ukraine-66ea51af.js.map
+//# sourceMappingURL=home-ukraine-5784a802.js.map

@@ -131,6 +131,7 @@
 .amazon {
   width: 42px;
   height: 21px;
+  fill: var(--font-color);
 }
 
 .ibook {

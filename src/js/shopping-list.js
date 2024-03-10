@@ -101,7 +101,7 @@ function removeFromShoppingList(bookId) {
     return;
   }
 
-  const updatedBooks = arrayLS.filter(book => book._id !== bookId);
+  const updatedBooks = arrayLS.filter(book_id => book_id !== bookId);
   localStorage.setItem('idBooks', JSON.stringify(updatedBooks));
 }
 

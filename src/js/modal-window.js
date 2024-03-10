@@ -8,7 +8,7 @@ const bookAuthor = document.querySelector('.popup-book-author');
 const bookReview = document.querySelector('.popup-book-review');
 const linkAmazon = document.querySelector('.popup-shopping-links-icon.amazon');
 const linkBook = document.querySelector('.popup-shopping-links-icon.book');
-const btn = document.querySelector('#add');
+const btn = document.querySelector('.modal-btn-add-to-shopinglist');
 const addMessage = document.querySelector('.under-button-text');
 
 btn.addEventListener('click', addOrRemoveBook);
@@ -57,7 +57,7 @@ export function addBook(id) {
   idBooks.push(id);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
-  addMessage.style.opacity = 1;
+  addMessage.style.opacity = 0;
 
 }
 

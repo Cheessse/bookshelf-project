@@ -71,7 +71,6 @@ export function removeBook(id) {
   idBooks.splice(idBooks.indexOf(id), 1);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Add to shopping list';
-  addMessage.hidden = true;
  
 }
 

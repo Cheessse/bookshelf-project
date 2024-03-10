@@ -1,31 +1,31 @@
-import"./assets/dark-theme-5a1592eb.js";import"./assets/vendor-59c8246b.js";const p="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",u="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",g="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",i="list";function h(e){const s=r();s.push(e),localStorage.setItem(i,JSON.stringify(s))}function r(){return JSON.parse(localStorage.getItem(i))||[]}const n={SHOPPING_LIST_KEY:i,addToShoppingList:h,getAllBooks:r},a=document.querySelector(".shopping-list-default-div");function m(){const e=JSON.parse(localStorage.getItem(n.SHOPPING_LIST_KEY))||[],s=document.querySelector(".shopping-list-render");if(e.length===0)a.style.display="block";else{a.style.display="none";const o=e.map(t=>`
-       <div class="card">
-        <img src="${t.book_image}" alt="book cover" class="book-cover" >
+import"./assets/dark-theme-5a1592eb.js";import"./assets/vendor-59c8246b.js";const l="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-amazon",c="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-ibooks",d="/project-team-6/assets/symbol-defs-a993dfba.svg#icon-trash",p="https://books-backend.p.goit.global/books/",o=document.querySelector(".shopping-list-default-div"),u=document.querySelector(".shopping-list-render");async function h(){try{const s=JSON.parse(localStorage.getItem("idBooks"))||[];if(!s||s.length===0){console.log("Масив ID порожній або відсутній.");return}const t=s.map(async e=>{const r=await fetch(`${p}/${e}`);if(!r.ok)throw new Error(`Failed to fetch data for ID: ${e}`);return r.json()}),a=await Promise.all(t);g(a)}catch(s){console.error("Error:",s.message)}}function g(s){if(s.length===0){o.style.display="block";return}const t=s.map(e=>`
+      <div class="card">
+        <img src="${e.book_image}" alt="book cover" class="book-cover" >
         <div class="about">
-          <h2 class="book-title">${t.title}</h2>
-          <p class="book-category">${t.list_name}</p>
-          <p class="book-description">${t.description}</p>
-          <p class="book-author">${t.author}</p>
+          <h2 class="book-title">${e.title}</h2>
+          <p class="book-category">${e.list_name}</p>
+          <p class="book-description">${e.description}</p>
+          <p class="book-author">${e.author}</p>
         </div>
            <div class="buy">
-        <a href="${t.buy_links[0].url}" target="_blank">
+        <a href="${e.buy_links[0].url}" target="_blank">
           <svg class="amazon" width="16" height="16">
-            <use href="${p}"></use>
+            <use href="${l}"></use>
           </svg>
         </a>
-        <a href="${t.buy_links[1].url}" target="_blank">
+        <a href="${e.buy_links[1].url}" target="_blank">
           <svg class="ibook" width="16" height="16">
-            <use href="${u}"></use>
+            <use href="${c}"></use>
           </svg>
         </a>
       </div>
-      <button data-book-id="${t._id}" class="delete-btn">
+      <button data-book-id="${e._id}" class="delete-btn">
         <div class="icon-trash">
           <svg class="trash" width="16" height="16">
-            <use href="${g}"></use>
+            <use href="${d}"></use>
           </svg>
         </div>
       </button>
-       </div>
-  `).join("");s.insertAdjacentHTML("beforeend",o)}document.querySelectorAll(".delete-btn").forEach(o=>{o.addEventListener("click",()=>{const t=o.getAttribute("data-book-id");S(t);const c=o.closest(".card");c&&c.remove(),d()})})}m();function S(e){const s=JSON.parse(localStorage.getItem(n.SHOPPING_LIST_KEY))||[];if(!s||s.length===0)return;const l=s.filter(o=>o._id!==e);console.log(l),toLocalStorage(n.SHOPPING_LIST_KEY,l)}function b(){return document.querySelector(".shopping-list-render").children.length===0}function d(){const e=document.querySelector(".support-ukraine");b()?(a.style.display="block",e.style.display="none"):(a.style.display="none",e.style.display="block")}d();
+      </div>
+    `).join("");u.insertAdjacentHTML("beforeend",t),s.length===0?o.style.display="block":o.style.display="none",document.querySelectorAll(".delete-btn").forEach(e=>{e.addEventListener("click",()=>{const r=e.getAttribute("data-book-id");m(r);const n=e.closest(".card");n&&n.remove(),i()})})}h();function m(s){const t=JSON.parse(localStorage.getItem("idBooks"))||[];if(!t||t.length===0)return;const a=t.filter(e=>e._id!==s);localStorage.setItem("idBooks",JSON.stringify(a))}function f(){return document.querySelector(".shopping-list-render").children.length===0}function i(){const s=document.querySelector(".support-ukraine");f()?(o.style.display="block",s.style.display="none"):(o.style.display="none",s.style.display="block")}i();
 //# sourceMappingURL=commonHelpers2.js.map

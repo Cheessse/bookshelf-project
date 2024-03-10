@@ -53,6 +53,10 @@ body {
   margin: 0;
 }
 
+.icon-Bookshelf {
+  fill: var(--font-color);
+}
+
 .header-logo-link {
   margin-right: auto;
   display: flex;
@@ -460,9 +464,6 @@ input:checked + .slider-black:before {
     color: var(--font-color);
   }
 
-  .icon-Bookshelf {
-    fill: var(--font-color);
-  }
   /* button.header-mob-menu-btn.js-open-menu {    
     display:none;
 } */

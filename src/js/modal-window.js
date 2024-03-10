@@ -57,7 +57,7 @@ export function addBook(id) {
   idBooks.push(id);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
-  addMessage.style.opacity = 1;
+  addMessage.style.opacity = 0;
 
 }
 
@@ -67,7 +67,7 @@ export function removeBook(id) {
   idBooks.splice(idBooks.indexOf(id), 1);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Add to shopping list';
-  addMessage.style.opacity = 0;
+  addMessage.style.opacity = 1;
  
 }
 

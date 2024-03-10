@@ -77,10 +77,10 @@ export function checkLocalStorage(book) {
 
   if (!contantLS || contantLS === '' || !contantLS.includes(book._id)) {
     btn.textContent = 'Add to shopping list';
+    addMessage.hidden = true;
   } else {
     btn.textContent = 'Remove from the shopping list';
     addMessage.hidden = false;
   }
   btn.attributes.id.value = book._id;
 }
-

@@ -115,7 +115,7 @@ function updateCardView() {
 
   if (isCardEmpty()) {
     placeholder.style.display = 'block';
-    supportBlock.style.display = 'none';
+    supportBlock.style.display = 'block';
   } else {
     placeholder.style.display = 'none';
     supportBlock.style.display = 'block';

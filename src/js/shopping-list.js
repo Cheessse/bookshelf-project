@@ -1,25 +1,43 @@
+const URL = 'https://books-backend.p.goit.global/books/';
+
 import amazon from '../img/symbol-defs.svg#icon-amazon';
 import appleBook from '../img/symbol-defs.svg#icon-ibooks';
 import trash from '../img/symbol-defs.svg#icon-trash';
 
-import { localStorageAPI } from './local-storage';
-
 const placeholder = document.querySelector('.shopping-list-default-div');
+const shoppingList = document.querySelector('.shopping-list-render');
 
-function renderBooksFromLS() {
-  const booksLS =
-    JSON.parse(localStorage.getItem(localStorageAPI.SHOPPING_LIST_KEY)) || [];
+async function retrieveBooksFromLS() {
+  try {
+    const arrayLS = JSON.parse(localStorage.getItem('idBooks')) || [];
+    if (!arrayLS || arrayLS.length === 0) {
+      console.log('Масив ID порожній або відсутній.');
+      return;
+    }
 
-  const booksList = document.querySelector('.shopping-list-render');
+    const promises = arrayLS.map(async id => {
+      const response = await fetch(`${URL}/${id}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data for ID: ${id}`);
+      }
+      return response.json();
+    });
+    const responseData = await Promise.all(promises);
+    renderData(responseData);
+  } catch (error) {
+    console.error('Error:', error.message);
+  }
+}
 
-  if (booksLS.length === 0) {
+function renderData(dataArray) {
+  if (dataArray.length === 0) {
     placeholder.style.display = 'block';
-  } else {
-    placeholder.style.display = 'none';
-    const markup = booksLS
-      .map(
-        book => `
-       <div class="card">
+    return;
+  }
+  const markup = dataArray
+    .map(book => {
+      return `
+      <div class="card">
         <img src="${book.book_image}" alt="book cover" class="book-cover" >
         <div class="about">
           <h2 class="book-title">${book.title}</h2>
@@ -46,12 +64,16 @@ function renderBooksFromLS() {
           </svg>
         </div>
       </button>
-       </div>
-  `
-      )
-      .join('');
+      </div>
+    `;
+    })
+    .join('');
 
-    booksList.insertAdjacentHTML('beforeend', markup);
+  shoppingList.insertAdjacentHTML('beforeend', markup);
+  if (dataArray.length === 0) {
+    placeholder.style.display = 'block';
+  } else {
+    placeholder.style.display = 'none';
   }
 
   const deleteBtn = document.querySelectorAll('.delete-btn');
@@ -70,21 +92,17 @@ function renderBooksFromLS() {
     });
   });
 }
-
-renderBooksFromLS();
+retrieveBooksFromLS();
 
 function removeFromShoppingList(bookId) {
-  const booksLS =
-    JSON.parse(localStorage.getItem(localStorageAPI.SHOPPING_LIST_KEY)) || [];
+  const arrayLS = JSON.parse(localStorage.getItem('idBooks')) || [];
 
-  if (!booksLS || booksLS.length === 0) {
+  if (!arrayLS || arrayLS.length === 0) {
     return;
   }
 
-  const updatedBooks = booksLS.filter(book => book._id !== bookId);
-  console.log(updatedBooks);
-
-  toLocalStorage(localStorageAPI.SHOPPING_LIST_KEY, updatedBooks);
+  const updatedBooks = arrayLS.filter(book => book._id !== bookId);
+  localStorage.setItem('idBooks', JSON.stringify(updatedBooks));
 }
 
 function isCardEmpty() {

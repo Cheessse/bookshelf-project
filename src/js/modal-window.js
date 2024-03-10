@@ -61,7 +61,7 @@ export function addBook(id) {
   idBooks.push(id);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
-  addMessage.hidden = false;
+  addMessage.hidden = true;
 
 }
 
@@ -81,7 +81,7 @@ export function checkLocalStorage(book) {
     btn.textContent = 'Add to shopping list';
   } else {
     btn.textContent = 'Remove from the shopping list';
-    addMessage.hidden = false;
+    addMessage.hidden = true;
   }
   btn.attributes.id.value = book._id;
 }

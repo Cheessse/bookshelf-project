@@ -37,9 +37,7 @@ export async function modalAboutBook(bookId) {
 }
 
 export function addOrRemoveBook(e) {
-  if (e.target.disabled) {
-    return;
-  }
+ 
   const id = e.target.attributes.id.value;
   if (btn.textContent === 'Add to shopping list') {
     addBook(id);
@@ -61,7 +59,7 @@ export function addBook(id) {
   idBooks.push(id);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Remove from the shopping list';
-  addMessage.hidden = true;
+  addMessage.hidden = false;
 
 }
 
@@ -71,7 +69,7 @@ export function removeBook(id) {
   idBooks.splice(idBooks.indexOf(id), 1);
   localStorage.setItem('idBooks', JSON.stringify(idBooks));
   btn.textContent = 'Add to shopping list';
-  addMessage.hidden = false;
+  addMessage.hidden = true;
 }
 
 export function checkLocalStorage(book) {
@@ -81,7 +79,7 @@ export function checkLocalStorage(book) {
     btn.textContent = 'Add to shopping list';
   } else {
     btn.textContent = 'Remove from the shopping list';
-    addMessage.hidden = true;
+    addMessage.hidden = false;
   }
   btn.attributes.id.value = book._id;
 }

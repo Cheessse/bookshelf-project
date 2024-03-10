@@ -185,12 +185,12 @@
 }
 
 .under-button-text {
-  width: 242px;
+  width: 375px;
   margin-top: 8px;
   color: rgba(17, 17, 17, 0.5);
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 15px;
   line-height: 12px;
   text-align: center;
   letter-spacing: -0.04em;

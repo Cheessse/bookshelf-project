@@ -15,7 +15,6 @@
   cursor: pointer;
 }
 
-
 #category-list {
   width: 307px;
   height: 228px;
@@ -28,7 +27,7 @@
 }
 
 #category-list::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+  background: var(--all-categories-scroll-color);
   border-radius: 12px;
   height: 114px;
 }
@@ -63,8 +62,6 @@
   text-transform: uppercase;
   color: var(--all-categories-title-and-hover);
 }
-
-
 
 /**=====  TABLET ===================================================================================  */
 @media screen and (min-width: 768px) {

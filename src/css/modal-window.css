@@ -194,7 +194,7 @@
   line-height: 12px;
   text-align: center;
   letter-spacing: -0.04em;
-  stroke: var(--all-categories-list-text);
+  color: var(--all-categories-scroll-color);
 }
 
 .no-scroll {

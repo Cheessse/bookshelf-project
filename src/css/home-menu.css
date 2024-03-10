@@ -4,15 +4,18 @@
   height: 228px;
   margin-bottom: 40px;
   overflow-y: hidden;
+  transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
 }
 
 .slider-container ul {
   list-style-type: none;
   padding: 0;
+
 }
 
 .slider-container ul p {
   cursor: pointer;
+
 }
 
 #category-list {
@@ -20,6 +23,7 @@
   height: 228px;
   overflow-y: auto;
   margin-top: 20px;
+
 }
 
 #category-list::-webkit-scrollbar {
@@ -41,6 +45,7 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--all-categories-title-and-hover);
+  transition: all 0.3s ease;
 }
 
 #category-list p {
@@ -52,6 +57,7 @@
   line-height: 112%;
   letter-spacing: -0.02em;
   color: var(--all-categories-list-text);
+  transition: all 0.3s ease;
 }
 
 #category-list p:hover {

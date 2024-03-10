@@ -29,6 +29,10 @@ function updateCssVariables(theme) {
     theme.allCategoriesListText
   );
   root.style.setProperty(
+    '--all-categories-scroll-color',
+    theme.allCategoriesScrollColor
+  );
+  root.style.setProperty(
     '--shopping-list-default-text',
     theme.shoppingListDefaultText
   );
@@ -36,11 +40,11 @@ function updateCssVariables(theme) {
 
 function toggleTheme() {
   if (slider.checked) {
-    setTheme('styles-light-theme');
-    updateCssVariables(lightTheme);
-  } else {
     setTheme('styles-dark-theme');
     updateCssVariables(darkTheme);
+  } else {
+    setTheme('styles-light-theme');
+    updateCssVariables(lightTheme);
   }
 }
 
@@ -54,6 +58,7 @@ const lightTheme = {
   modalBodyColor: '#fff',
   allCategoriesTitleAndHover: '#4f2ee8',
   allCategoriesListText: 'rgba(17, 17, 17, 0.6)',
+  allCategoriesScrollColor: '#e0e0e0',
   shoppingListDefaultText: 'rgba(0, 0, 0, 0.6)',
 };
 
@@ -65,6 +70,7 @@ const darkTheme = {
   modalBodyColor: '#202024',
   allCategoriesTitleAndHover: '#eac645',
   allCategoriesListText: 'rgba(255, 255, 255, 0.6)',
+  allCategoriesScrollColor: 'rgba(17, 17, 17, 0.6)',
   shoppingListDefaultText: 'rgba(255, 255, 255, 0.6)',
 };
 
@@ -72,11 +78,11 @@ function checkTheme() {
   if (savedTheme === 'styles-dark-theme') {
     setTheme('styles-dark-theme');
     updateCssVariables(darkTheme);
-    slider.checked = false;
+    slider.checked = true;
   } else {
     setTheme('styles-light-theme');
     updateCssVariables(lightTheme);
-    slider.checked = true;
+    slider.checked = false;
   }
 }
 

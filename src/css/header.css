@@ -64,10 +64,10 @@ body {
   height: 28px;
 }
 
-.header-logo {
+/* .header-logo {
   width: 24px;
   height: 24px;
-}
+} */
 
 .theme-switch-menu-btn {
   display: flex;
@@ -77,54 +77,6 @@ body {
   height: 28px;
 }
 
-/*==========================theme-switch====================*/
-/* .theme-switch {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border: transparent;
-    width: 40px;
-    height: 24px;    
-} */
-
-/* .theme-switch input[type="checkbox"] {
-    display: none;
-}
-
-.theme-switch label {
-    cursor: pointer;
-    display: block;
-    width: 40px;
-    height: 20px;
-    background:linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
-    border-radius: 10px;    
-    box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-}
-
-.theme-switch label:hover {
-    background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);    
-}
-
-.theme-switch label::before {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 1px;
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);;
-    border-radius: 50%;
-    transition: transform 0.3s ease;    
-    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
-}
-
-.theme-switch input:checked + label::before {
-    transform: translateX(20px);
-} */
-
-/*===========================container-switch-black=======================*/
 .container-switch-black {
   display: flex;
   width: 100%;
@@ -178,7 +130,6 @@ body {
   width: 18px;
   height: 18px;
   left: 1px;
-  /* bottom: 2px; */
   top: 1px;
   right: 1px;
   margin: auto 0;
@@ -192,8 +143,6 @@ body {
 
 input:checked + .slider-black:before {
   -webkit-transform: translateX(20px);
-  /* -ms-transform: translateX(52px);
-    transform: translateX(55px); */
   background: white;
   background-repeat: no-repeat;
   background-position: center;
@@ -207,23 +156,9 @@ input:checked + .slider-black:before {
   border-radius: 50%;
 }
 
-/*==============================================*/
-
 .hidden {
   display: none;
 }
-
-/* button.header-mob-menu-btn.js-open-menu {
-    display: flex;
-    justify-content: start;
-    align-items: center;    
-    background-color: transparent;
-    border: transparent;
-    width: 28px;
-    height: 28px;
-    padding: 0px;
-    margin: 0px;
-} */
 
 .header-mob-menu-btn.js-open-menu {
   display: flex;
@@ -238,10 +173,6 @@ input:checked + .slider-black:before {
   cursor: pointer;
 }
 
-/* button.header-mob-menu-btn :hover {
-    stroke: #4F2EE8;
-} */
-
 .header-mob-menu-btn :hover {
   stroke: #4f2ee8;
 }
@@ -249,10 +180,6 @@ input:checked + .slider-black:before {
 .header-menu-icon {
   stroke: var(--font-color);
 }
-
-/* .nav {
-    display: none;
-} */
 
 .container-modal-menu a {
   color: currentColor;
@@ -304,8 +231,7 @@ input:checked + .slider-black:before {
   background-image: url('../img/Group-min.png');
   background-size: 450px 438px;
   background-repeat: no-repeat;
-  background-position: center bottom;
-  /* transform: rotate(15deg); */
+  background-position: center bottom;  
   z-index: -1;
 }
 
@@ -412,7 +338,7 @@ input:checked + .slider-black:before {
     margin-right: 265px;
   }
 
-  .current-page {
+  .nav-link-home.current-page {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -422,12 +348,41 @@ input:checked + .slider-black:before {
     padding: 8px 16px;
     width: 72px;
     height: 34px;
+  }
+
+  .nav-link-home.active {
+    background-color: #eac645;
+    font-weight: 700;    
+  }
+
+  .nav-link-home:hover {
+    background-color: #eac645;    
+  }
+
+  .nav-link-shopping.current-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+    border-radius: 36px;
+    padding: 7px 16px;
+    width: 156px;
+    height: 34px;
+  }
+
+  .nav-link-shopping.active {
+    background-color: #eac645;
+    font-weight: 700;  
+  }
+
+  .nav-link-shopping:hover {
     background-color: #eac645;
   }
 
   .nav-link-home {
     font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
@@ -454,10 +409,6 @@ input:checked + .slider-black:before {
     width: 118px;
     height: 20px;
   }
-
-  /* button.header-mob-menu-btn.js-open-menu {    
-    display:none;
-} */
 }
 
 @media screen and (min-width: 1440px) {

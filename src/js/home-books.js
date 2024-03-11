@@ -57,12 +57,13 @@ function renderBooks(books, category) {
     markup +
     `<a href="#anchor-books">
   <button type="button" class="scroll-up hidden">UP</button>
-</a>
-` +
+</a>` +
     `<a href="#goback" >
     <button type="button" class="back-to-all-cat">GO BACK</button> 
 </a>
 `;
+
+  scrollButtonVisibility();
 }
 
 function renderBooksAll(categories) {
@@ -211,15 +212,16 @@ function showError(text, bgColor, txtColor) {
 
 // ==============////////SCROLL//////////===============
 
-const anchor = document.getElementById('anchor-books');
+window.addEventListener('scroll', scrollButtonVisibility);
 
-window.addEventListener('scroll', () => {
+function scrollButtonVisibility() {
   const scrollButtons = document.querySelectorAll('.scroll-up');
+  const anchor = document.querySelector('#anchor-books');
   const anchorPosition = anchor.getBoundingClientRect().top;
   const screenHeight = window.innerHeight;
 
   scrollButtons.forEach(button => {
-    const buttonPosition = button.getBoundingClientRect().bottom;
+    const buttonPosition = button.getBoundingClientRect().top;
     const buttonVisibilityThreshold = screenHeight * 0.9;
 
     if (
@@ -230,6 +232,24 @@ window.addEventListener('scroll', () => {
       button.classList.remove('hidden');
     }
   });
-});
 
+  document.querySelectorAll('.scroll-up').forEach(button => {
+    button.addEventListener('click', () => {
+      const anchor = document.querySelector('#anchor-books');
+      anchor.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  document.querySelector('.back-to-all-cat').addEventListener('click', () => {
+    const booksContainerOne = document.querySelector(
+      '.books-container-one-cat'
+    );
+    booksContainerOne.innerHTML = '';
+
+    loadBooksAllCat();
+
+    const containerAllCat = document.querySelector('.books-container-all-cat');
+    containerAllCat.scrollIntoView({ behavior: 'smooth' });
+  });
+}
 

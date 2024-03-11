@@ -85,7 +85,9 @@ function renderBooksAll(categories) {
     </div>`;
   });
   booksContainerAllTit.innerHTML = title;
-  booksContainerAll.innerHTML = markup;
+  booksContainerAll.innerHTML = markup +`<a href="#anchor-books">
+  <button type="button" class="scroll-up hidden">UP</button>
+</a>`;
 }
 
 export async function loadBooks(selectedCategory) {

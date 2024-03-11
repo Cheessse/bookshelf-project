@@ -386,7 +386,7 @@ input:checked + .slider-black:before {
 
   .nav-link-home {
     font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
